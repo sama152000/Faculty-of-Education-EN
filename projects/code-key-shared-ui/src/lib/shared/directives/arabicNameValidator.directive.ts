@@ -1,0 +1,1 @@
+/* Removed ArabicNamePatternDirective as project is English only */
