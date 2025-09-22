@@ -1,0 +1,63 @@
+<div class="header-container" [dir]="direction">
+  <nav class="main-navigation">
+    <div class="nav-content">
+      <!-- Logo -->
+      <div class="logo-section" *ngIf="logo">
+        <img [src]="logo.logoPath" [alt]="logo.logoAltText" class="logo-image" />
+        <div class="logo-text">
+          <p class="university-name">{{ SiteName }}</p>
+        </div>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button class="mobile-toggle" (click)="toggleMobileMenu()">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+      </button>
+
+      <!-- Menu -->
+      <ul class="nav-tabs" [class.mobile-open]="isMobileMenuOpen">
+        <li *ngFor="let tab of menus" class="nav-tab-item" [class.has-children]="tab.childs.length">
+          <a
+            [routerLink]="tab.target"
+            routerLinkActive="active"
+            [fragment]="tab.fragment"
+            class="nav-tab-link"
+            (click)="closeMobileMenu()"
+          >
+            {{ tab.title }}
+          </a>
+
+          <!-- Submenu -->
+          <ul class="submenu" *ngIf="tab.childs?.length">
+            <li *ngFor="let child of tab.childs">
+              <a
+                [routerLink]="child.target"
+                routerLinkActive="active"
+                class="submenu-link"
+                (click)="closeMobileMenu()"
+              >
+                {{ child.title }}
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Languages -->
+        <li class="nav-tab-item mobile-only">
+          <div class="mobile-language-switcher">
+            <a
+              *ngFor="let lang of languages"
+              [href]="lang.url"
+              class="mobile-language-btn"
+              [class.active]="lang.active"
+            >
+              {{ lang.label }}
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
