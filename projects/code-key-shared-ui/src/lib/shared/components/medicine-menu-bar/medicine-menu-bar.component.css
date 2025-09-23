@@ -1,0 +1,381 @@
+/* ===============================
+   🎨 Medicine Menu Bar - Updated Color Scheme
+   =============================== */
+:root {
+  /* Primary Colors */
+  --medicine-primary-red: #B71C1C;
+  --medicine-primary-red-light: #C62828;
+  --medicine-primary-brown: #5D4037;
+  --medicine-primary-brown-light: #6D4C41;
+  --medicine-primary-orange: #FF8F00;
+  --medicine-primary-orange-light: #FFA000;
+
+  /* Secondary Colors */
+  --medicine-white: #FFFFFF;
+  --medicine-light-gray: #F5F5F5;
+  --medicine-dark-gray: #424242;
+
+  /* Complementary Colors */
+  --medicine-dark-blue: #1565C0;
+  --medicine-medical-green: #388E3C;
+  --medicine-light-beige: #FFF8E1;
+
+  /* Component Specific Colors */
+  --medicine-menu-bg: var(--medicine-white);
+  --medicine-menu-text: var(--medicine-primary-brown);
+  --medicine-menu-border: var(--medicine-light-gray);
+
+  --medicine-menu-hover-bg: var(--medicine-light-beige);
+  --medicine-menu-hover-text: var(--medicine-primary-brown);
+
+  --medicine-menu-active-bg: var(--medicine-primary-red);
+  --medicine-menu-active-text: var(--medicine-white);
+  --medicine-menu-active-shadow: 0 2px 4px rgba(183, 28, 28, 0.3);
+
+  --medicine-menu-dropdown-bg: var(--medicine-white);
+  --medicine-menu-dropdown-text: var(--medicine-primary-brown);
+  --medicine-menu-dropdown-hover-bg: var(--medicine-light-beige);
+  --medicine-menu-dropdown-border: var(--medicine-light-gray);
+
+  --medicine-menu-toggler-bg: var(--medicine-primary-red);
+  --medicine-menu-toggler-border: var(--medicine-primary-red-light);
+
+  --medicine-menu-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --medicine-menu-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ===============================
+   🧭 Medicine Menu Bar Container
+   =============================== */
+.medicine-menu-bar {
+  background: var(--medicine-menu-bg) !important;
+  box-shadow: var(--medicine-menu-shadow);
+  position: relative;
+  z-index: 1000;
+  direction: rtl;
+}
+
+/* ===============================
+   📱 Mobile Menu Toggler
+   =============================== */
+.navbar-toggler {
+  background: var(--medicine-menu-toggler-bg);
+  border: 1px solid var(--medicine-menu-toggler-border);
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background: var(--medicine-menu-hover-bg);
+  border-color: var(--medicine-menu-hover-text);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(183, 28, 28, 0.25);
+}
+
+/* ===============================
+   🗂️ Navigation Items
+   =============================== */
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  color: var(--medicine-menu-text) !important;
+  font-weight: 500;
+  padding: 0.75rem 1rem !important;
+  transition: all 0.3s ease;
+  position: relative;
+  border-radius: 0.375rem;
+  margin: 0 0.25rem;
+}
+
+.nav-link:hover {
+  background: var(--medicine-menu-hover-bg) !important;
+  color: var(--medicine-menu-hover-text) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--medicine-menu-shadow-hover);
+}
+
+.nav-link.active {
+  background: var(--medicine-menu-active-bg) !important;
+  color: var(--medicine-menu-active-text) !important;
+  box-shadow: var(--medicine-menu-active-shadow);
+}
+
+.nav-link i {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover i {
+  opacity: 1;
+}
+
+/* ===============================
+   📂 Dropdown Menus
+   =============================== */
+.dropdown {
+  position: static;
+}
+
+.dropdown-toggle::after {
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  background: var(--medicine-menu-dropdown-bg);
+  border: 1px solid var(--medicine-menu-dropdown-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  min-width: 200px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  color: var(--medicine-menu-dropdown-text);
+  padding: 0.5rem 1rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  margin: 0 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.dropdown-item:hover {
+  background: var(--medicine-menu-dropdown-hover-bg);
+  color: var(--medicine-menu-dropdown-text);
+  transform: translateX(-2px);
+}
+
+.dropdown-item.active {
+  background: var(--medicine-menu-active-bg);
+  color: var(--medicine-menu-active-text);
+}
+
+.dropdown-item i {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-inline-end: 0.5rem;
+}
+
+/* ===============================
+   🔍 Right Side Menu Items
+   =============================== */
+.navbar-nav .nav-item .nav-link {
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem !important;
+}
+
+.navbar-nav .nav-item .nav-link i {
+  font-size: 0.8rem;
+}
+
+/* ===============================
+   📱 Dropdown Overlay (Click Outside)
+   =============================== */
+.dropdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 999;
+}
+
+/* ===============================
+   📱 Responsive Design
+   =============================== */
+@media (max-width: 991.98px) {
+  .medicine-menu-bar {
+    padding: 0.5rem 0;
+  }
+
+  .navbar-collapse {
+    background: var(--medicine-menu-bg);
+    border-top: 1px solid var(--medicine-menu-border);
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    padding: 0.75rem 1rem !important;
+    margin: 0 !important;
+    border-radius: 0.375rem !important;
+  }
+
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 0.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .dropdown-item {
+    color: var(--medicine-menu-text);
+    padding: 0.5rem 1.5rem;
+  }
+
+  .dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--medicine-menu-text);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-nav .nav-item .nav-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  .nav-link {
+    text-align: right;
+  }
+
+  .dropdown-menu {
+    padding: 0.25rem 0;
+  }
+
+  .dropdown-item {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .medicine-menu-bar {
+    padding: 0.25rem 0;
+  }
+
+  .navbar-toggler {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .navbar-collapse {
+    padding: 0.75rem;
+  }
+
+  .nav-link {
+    padding: 0.6rem 0.75rem !important;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-item {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===============================
+   ♿ Accessibility & Focus States
+   =============================== */
+.nav-link:focus {
+  outline: 2px solid var(--medicine-primary-red);
+  outline-offset: 2px;
+}
+
+.dropdown-item:focus {
+  outline: 2px solid var(--medicine-primary-red);
+  outline-offset: 2px;
+}
+
+.navbar-toggler:focus {
+  outline: 2px solid var(--medicine-primary-red);
+  outline-offset: 2px;
+}
+
+/* ===============================
+   🌙 Dark Theme Support (Optional)
+   =============================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --medicine-menu-bg: #1a1a1a;
+    --medicine-menu-text: #ffffff;
+    --medicine-menu-border: #333333;
+    --medicine-menu-hover-bg: #2d2d2d;
+    --medicine-menu-dropdown-bg: #2d2d2d;
+    --medicine-menu-dropdown-text: #ffffff;
+    --medicine-menu-dropdown-hover-bg: #404040;
+    --medicine-menu-dropdown-border: #404040;
+  }
+}
+
+/* ===============================
+   🎭 Animation Effects
+   =============================== */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.medicine-menu-bar {
+  animation: slideDown 0.4s ease-out;
+}
+
+.dropdown-menu {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* ===============================
+   📐 RTL Support
+   =============================== */
+[dir="ltr"] .medicine-menu-bar {
+  direction: ltr;
+}
+
+[dir="ltr"] .navbar-nav {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+[dir="ltr"] .dropdown-menu {
+  right: auto;
+  left: 0;
+}
+
+[dir="ltr"] .nav-link {
+  text-align: left;
+}
+
+[dir="ltr"] .dropdown-toggle::after {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}

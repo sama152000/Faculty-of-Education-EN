@@ -1,0 +1,40 @@
+<div class="hero-section">
+  <div class="hero-slider">
+    <div class="slide-container" 
+     [style.background-image]="'url(' + getCurrentSlide().imageUrl + ')'">
+
+      
+      <!-- Overlay -->
+      <div class="slide-overlay"></div>
+
+      <!-- Content -->
+      <div class="hero-content">
+        <div class="content-wrapper">
+          <div class="text-content">
+            <h1 class="hero-title">{{ getCurrentSlide().title }}</h1>
+            <p class="hero-subtitle" *ngIf="getCurrentSlide().subtitle">{{ getCurrentSlide().subtitle }}</p>
+            <p class="hero-description" *ngIf="getCurrentSlide().description">{{ getCurrentSlide().description }}</p>
+
+            <a *ngIf="getCurrentSlide().ctaText && getCurrentSlide().ctaLink"
+               class="cta-button"
+               [routerLink]="getCurrentSlide().ctaLink">
+              {{ getCurrentSlide().ctaText }}
+              <i class="pi pi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicators -->
+      <div class="slide-indicators">
+        <div class="indicators-container">
+          <span *ngFor="let slide of slides; let i = index" 
+                class="indicator"
+                [class.active]="i === currentSlideIndex"
+                (click)="goToSlide(i)">
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

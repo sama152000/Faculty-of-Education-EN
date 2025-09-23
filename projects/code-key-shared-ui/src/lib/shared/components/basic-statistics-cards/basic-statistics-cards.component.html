@@ -1,0 +1,42 @@
+<section class="statistics-section">
+  <div class="statistics-background">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2 class="section-title">{{ sectionTitle }}</h2>
+        <p class="section-subtitle">{{ sectionSubtitle }}</p>
+      </div>
+
+      <!-- Statistics Grid -->
+      <div class="statistics-grid">
+        <div *ngFor="let stat of statistics; let i = index" class="stat-card">
+          <div class="stat-card-inner">
+            <!-- Icon -->
+            <div class="stat-icon">
+              <i [class]="stat.icon"></i>
+            </div>
+
+            <!-- Count -->
+            <div class="stat-count">
+              <span class="count-number">{{ formatNumber(displayedCounts[i]) }}</span>
+              <span class="count-plus">+</span>
+            </div>
+
+            <!-- Title -->
+            <div class="stat-title">{{ stat.title }}</div>
+
+            <!-- Decorative -->
+            <div class="stat-decoration">
+              <div class="decoration-line"></div>
+              <div class="decoration-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+<div class="president-message-section" *ngIf="data">
+  <div class="container">
+    <div class="message-header">
+      <span class="subtitle">{{ data.subtitle }}</span>
+      <h2 class="main-title">{{ data.title }}</h2>
+    </div>
+    
+    <div class="president-content">
+      <!-- Profile -->
+      <div class="president-profile">
+        <div class="president-image">
+          <img [src]="data.president.image.src" [alt]="data.president.image.alt" />
+          <div class="image-border"></div>
+        </div>
+        
+        <div class="president-info">
+          <h3 class="president-name">{{ data.president.name }}</h3>
+          <p class="president-title">{{ data.president.title }}</p>
+          <div class="president-credentials" *ngIf="data.president.credentials?.length">
+            <span class="credential" *ngFor="let credential of data.president.credentials">
+              {{ credential }}
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Message -->
+      <div class="message-text">
+        <h3>{{ data.message.title }}</h3>
+        <p *ngFor="let paragraph of data.message.paragraphs">{{ paragraph }}</p>
+      </div>
+    </div>
+  </div>
+</div>
