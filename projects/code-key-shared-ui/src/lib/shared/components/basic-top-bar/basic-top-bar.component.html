@@ -1,0 +1,86 @@
+<div class="top-bar" [class.hidden]="isHidden">
+  <div class="container">
+    <!-- Left Section: Contact Info -->
+    <div class="contact-info">
+      <div class="info-item" *ngFor="let c of contact">
+        <ng-container *ngIf="c.phone">
+          <i class="pi pi-phone"></i>
+          <span class="ml-2">{{ c.phone }}</span>
+        </ng-container>
+
+        <ng-container *ngIf="c.email">
+          <i class="pi pi-envelope"></i>
+          <span class="ml-2">{{ c.email }}</span>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Right Section: Language & Social -->
+    <div class="right-section">
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <button
+          *ngFor="let lang of languages"
+          class="language-btn"
+          [class.active]="lang.value === currentLanguage"
+          [title]="lang.label"
+          (click)="openLanguageSite(lang.url)"
+        >
+          <span class="lang-text">{{ lang.label }}</span>
+        </button>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Location Button -->
+      <div
+        class="location-btn"
+        *ngIf="contact.length && contact[0].mapLocation"
+        (click)="openLocation(contact[0].mapLocation)"
+        [title]="locationLabel"
+      >
+        <i class="pi pi-map-marker"></i>
+        <span>{{ locationLabel }}</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Social Links -->
+      <div class="social-links">
+        <a
+          *ngFor="let social of socialLinks"
+          href="{{ social.url }}"
+          target="_blank"
+          rel="noopener"
+          [title]="social.name"
+          class="social-link"
+        >
+          <i [class]="social.icon" [style.color]="social.color"></i>
+        </a>
+      </div>
+
+      <!-- Center Section: Search -->
+      <div class="search-section">
+        <!-- Search Toggle Button -->
+        <button class="search-toggle" (click)="toggleSearch()" [class.active]="isSearchOpen">
+          <i class="pi pi-search"></i>
+        </button>
+
+        <!-- Search Box -->
+        <div class="search-box" [class.open]="isSearchOpen">
+          <input
+            type="text"
+            [placeholder]="'ابحث عن ...'"
+            [(ngModel)]="searchQuery"
+            (keypress)="onSearchKeyPress($event)"
+            class="search-input"
+            pInputText
+          />
+          <button class="search-btn" (click)="performSearch()">
+            <i class="pi pi-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
