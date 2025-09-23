@@ -41,3 +41,6 @@ export * from './lib/pages/service/icon.service';
 export * from './lib/pages/service/node.service';
 export * from './lib/pages/service/photo.service';
 
+// Export Shared Components
+export * from './lib/shared';
+

@@ -1,0 +1,85 @@
+<div class="medicine-news-section" *ngIf="newsItems.length > 0">
+  <!-- Header Section -->
+  <div class="news-header" *ngIf="showTitle">
+    <div class="container">
+      <div class="section-title">
+        <h2>{{ sectionTitle }}</h2>
+        <p class="section-subtitle">{{ sectionSubtitle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- News Carousel -->
+  <div class="news-carousel-container">
+    <div class="news-carousel"
+         (mouseenter)="onMouseEnter()"
+         (mouseleave)="onMouseLeave()">
+
+      <!-- News Cards -->
+      <div class="news-cards" [style.transform]="'translateX(-' + currentIndex * (100 / itemsPerView) + '%)'">
+        <div class="news-card" *ngFor="let item of newsItems; trackBy: trackByFn">
+          <div class="card-inner">
+            <!-- Background Image -->
+            <div class="card-background" [style.background-image]="'url(' + item.imageUrl + ')'"></div>
+
+            <!-- Content Overlay -->
+            <div class="card-content">
+              <!-- Date Badge -->
+              <div class="date-badge">
+                <span class="day">{{ getDateParts(item.date).day }}</span>
+                <span class="month">{{ getDateParts(item.date).month }}</span>
+              </div>
+
+              <!-- Card Info -->
+              <div class="card-info">
+                <div class="author-info">
+                  <span class="author">By {{ item.author }}</span>
+                  <span class="specialty">/ {{ item.specialty }}</span>
+                </div>
+
+                <h3 class="news-title">{{ item.title }}</h3>
+
+                <p class="news-excerpt">{{ item.excerpt }}</p>
+
+                <a href="#" class="read-more-link" *ngIf="item.readMoreUrl">
+                  Continue Reading <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="nav-arrow nav-arrow-left"
+            (click)="prevSlide()"
+            [disabled]="!hasPrev"
+            [class.disabled]="!hasPrev"
+            aria-label="Previous news">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <button class="nav-arrow nav-arrow-right"
+            (click)="nextSlide()"
+            [disabled]="!hasNext"
+            [class.disabled]="!hasNext"
+            aria-label="Next news">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- Carousel Indicators -->
+  <div class="carousel-indicators" *ngIf="newsItems.length > itemsPerView">
+    <div class="container">
+      <div class="indicators-wrapper">
+        <button *ngFor="let item of newsItems; let i = index"
+                class="indicator"
+                [class.active]="i >= currentIndex && i < currentIndex + itemsPerView"
+                (click)="goToSlide(i)"
+                [attr.aria-label]="'Go to news item ' + (i + 1)">
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
