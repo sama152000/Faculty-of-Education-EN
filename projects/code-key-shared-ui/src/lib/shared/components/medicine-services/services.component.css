@@ -1,0 +1,421 @@
+/* ===============================
+   🎨 Services Component - Updated Color Scheme
+   =============================== */
+:root {
+  /* Primary Colors */
+  --medicine-primary-red: #B71C1C;
+  --medicine-primary-red-light: #C62828;
+  --medicine-primary-brown: #5D4037;
+  --medicine-primary-brown-light: #6D4C41;
+  --medicine-primary-orange: #FF8F00;
+  --medicine-primary-orange-light: #FFA000;
+
+  /* Secondary Colors */
+  --medicine-white: #FFFFFF;
+  --medicine-light-gray: #F5F5F5;
+  --medicine-dark-gray: #424242;
+
+  /* Complementary Colors */
+  --medicine-dark-blue: #1565C0;
+  --medicine-medical-green: #388E3C;
+  --medicine-light-beige: #FFF8E1;
+
+  /* Component Specific Colors */
+  --services-bg: var(--medicine-light-beige);
+  --services-text: var(--medicine-primary-brown);
+  --services-border: var(--medicine-light-gray);
+
+  --services-card-bg: var(--medicine-white);
+  --services-card-border: var(--medicine-light-gray);
+  --services-card-shadow: 0 2px 8px rgba(93, 64, 55, 0.15);
+  --services-card-hover-shadow: 0 4px 16px rgba(93, 64, 55, 0.25);
+
+  --services-header-bg: var(--medicine-primary-brown);
+  --services-icon-bg: var(--medicine-primary-red);
+  --services-icon-size: 100px;
+
+  --services-title-color: var(--medicine-white);
+  --services-description-color: var(--medicine-dark-gray);
+  --services-readmore-color: var(--medicine-primary-red);
+  --services-readmore-hover-color: var(--medicine-primary-red-light);
+
+  --services-all-btn-color: var(--medicine-primary-red);
+  --services-all-btn-hover-color: var(--medicine-primary-red-light);
+
+  --services-section-padding: 100px 0;
+  --services-card-margin: 30px;
+}
+
+/* ===============================
+   🏥 Services Section Container
+   =============================== */
+.services-section {
+  padding: var(--services-section-padding);
+  background: var(--services-bg);
+}
+
+/* ===============================
+   📋 Section Title
+   =============================== */
+.section-title {
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.section-title h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--services-text);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.title-underline {
+  background: url("../images/services/underline1.png") no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 120px;
+  height: 21px;
+  margin: 20px auto 0;
+}
+
+/* ===============================
+   🎴 Services Grid
+   =============================== */
+.services-grid {
+  margin-top: 50px;
+}
+
+/* ===============================
+   🎯 Service Card
+   =============================== */
+.service-card {
+  border: solid 1px var(--services-card-border);
+  margin-bottom: var(--services-card-margin);
+  position: relative;
+  background: var(--services-card-bg);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  box-shadow: var(--services-card-hover-shadow);
+  transform: translateY(-3px);
+  border-color: var(--medicine-primary-red-light);
+}
+
+/* ===============================
+   🎨 Card Header
+   =============================== */
+.card-header {
+  background-color: var(--services-header-bg);
+  display: flex;
+  padding: 0;
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background-color: var(--services-icon-bg);
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+}
+
+.service-card:hover .card-icon {
+  background-color: var(--medicine-primary-red-light);
+}
+
+.icon-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.card-title-section {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 0 20px;
+}
+
+.card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--services-title-color);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* ===============================
+   📝 Card Content
+   =============================== */
+.card-content {
+  background-color: var(--services-card-bg);
+  padding: 20px 30px;
+}
+
+.card-description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.71;
+  color: var(--services-description-color);
+  margin: 0 0 15px 0;
+}
+
+.readmore-link {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: var(--services-readmore-color);
+  text-decoration: none;
+  padding-top: 10px;
+  transition: all 0.5s ease;
+}
+
+.readmore-link:hover {
+  color: var(--services-readmore-hover-color);
+  text-decoration: none;
+}
+
+/* ===============================
+   🔗 All Services Button
+   =============================== */
+.all-services-section {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.all-services-btn {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--services-all-btn-color);
+  text-decoration: none;
+  padding: 12px 30px;
+  border: 2px solid var(--services-all-btn-color);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.all-services-btn:hover {
+  background: var(--services-all-btn-color);
+  color: var(--medicine-white);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(183, 28, 28, 0.3);
+}
+
+/* ===============================
+   📱 Responsive Design
+   =============================== */
+@media (max-width: 1024px) {
+  .services-section {
+    padding: 80px 0;
+  }
+
+  .card-content {
+    padding: 15px 20px;
+  }
+
+  .card-title-section {
+    padding: 0 15px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .service-card {
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    padding-bottom: 60px;
+  }
+
+  .section-title h3 {
+    font-size: 28px;
+  }
+
+  .card-header {
+    flex-direction: column;
+  }
+
+  .card-icon {
+    width: 80px;
+    height: 80px;
+    align-self: center;
+  }
+
+  .icon-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .card-title-section {
+    min-height: 80px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .card-title {
+    font-size: 14px;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .card-description {
+    font-size: 13px;
+  }
+
+  .service-card {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-section {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    padding-bottom: 40px;
+  }
+
+  .section-title h3 {
+    font-size: 24px;
+  }
+
+  .card-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon-image {
+    width: 30px;
+    height: 30px;
+  }
+
+  .card-title-section {
+    min-height: 60px;
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 12px;
+  }
+
+  .card-content {
+    padding: 10px;
+  }
+
+  .card-description {
+    font-size: 12px;
+  }
+
+  .readmore-link {
+    font-size: 12px;
+  }
+
+  .all-services-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .service-card {
+    margin-bottom: 15px;
+  }
+}
+
+/* ===============================
+   ♿ Accessibility & Focus States
+   =============================== */
+.service-card:focus {
+  outline: 2px solid var(--medicine-primary-red);
+  outline-offset: 2px;
+}
+
+.readmore-link:focus {
+  outline: 2px solid var(--medicine-primary-red);
+  outline-offset: 2px;
+}
+
+.all-services-btn:focus {
+  outline: 2px solid var(--medicine-primary-red);
+  outline-offset: 2px;
+}
+
+/* ===============================
+   🌙 Dark Theme Support (Optional)
+   =============================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --services-bg: #2d2d2d;
+    --services-text: #ffffff;
+    --services-border: #444444;
+    --services-card-bg: #1a1a1a;
+    --services-title-color: #ffffff;
+    --services-description-color: #cccccc;
+  }
+}
+
+/* ===============================
+   🎭 Animation Effects
+   =============================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-card {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+.service-card:nth-child(5) { animation-delay: 0.5s; }
+.service-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* ===============================
+   📐 RTL Support
+   =============================== */
+[dir="ltr"] .card-title-section {
+  text-align: left;
+}
+
+[dir="ltr"] .card-content {
+  text-align: left;
+}
+
+[dir="ltr"] .card-description {
+  text-align: left;
+}

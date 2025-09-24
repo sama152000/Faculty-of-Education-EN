@@ -1,0 +1,55 @@
+<footer class="footer-container" [dir]="direction">
+  <!-- Main Footer Content -->
+  <div class="footer-main">
+    <div class="footer-content">
+
+      <!-- Logo and University Info Section -->
+      <div class="footer-section university-info footer-wide">
+        <div class="footer-logo">
+          <div class="footer-logo-text">
+            <h3 class="footer-college-name">{{ siteName }}</h3>
+            <p class="footer-university-name">{{ siteDescription }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div class="footer-section" *ngIf="quickLinks?.length">
+        <h4 class="footer-section-title">
+          <i class="pi pi-link section-icon"></i>
+          روابط سريعة
+        </h4>
+        <ul class="footer-links">
+          <li *ngFor="let link of quickLinks">
+            <a [routerLink]="link.target || '/'" [fragment]="link.fragment" class="footer-link">
+              <i class="pi pi-angle-left link-arrow"></i>
+              {{ link.title }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Info Section -->
+      <div class="footer-section" *ngIf="contactInfo?.length">
+        <h4 class="footer-section-title">
+          <i class="pi pi-phone section-icon"></i>
+          طرق التواصل
+        </h4>
+        <div class="contact-info">
+          <div class="contact-item" *ngFor="let item of contactInfo">
+            <i [class]="item.icon + ' contact-icon'"></i>
+            <span>{{ item.value }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Section -->
+  <div class="footer-bottom">
+    <p>
+      جميع الحقوق محفوظة © {{ currentYear }} {{ siteName }}
+    </p>
+  </div>
+</footer>

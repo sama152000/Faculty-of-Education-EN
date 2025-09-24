@@ -1,0 +1,316 @@
+/* ===============================
+   🎨 Departments Component - Updated Color Scheme
+   =============================== */
+:root {
+  /* Primary Colors */
+  --medicine-primary-red: #B71C1C;
+  --medicine-primary-red-light: #C62828;
+  --medicine-primary-brown: #5D4037;
+  --medicine-primary-brown-light: #6D4C41;
+  --medicine-primary-orange: #FF8F00;
+  --medicine-primary-orange-light: #FFA000;
+
+  /* Secondary Colors */
+  --medicine-white: #FFFFFF;
+  --medicine-light-gray: #F5F5F5;
+  --medicine-dark-gray: #424242;
+
+  /* Complementary Colors */
+  --medicine-dark-blue: #1565C0;
+  --medicine-medical-green: #388E3C;
+  --medicine-light-beige: #FFF8E1;
+
+  /* Component Specific Colors */
+  --departments-bg: var(--medicine-light-beige);
+  --departments-text: var(--medicine-primary-brown);
+  --departments-border: var(--medicine-primary-brown-light);
+
+  --departments-card-bg: var(--medicine-white);
+  --departments-card-border: var(--medicine-light-gray);
+  --departments-card-shadow: 0 2px 8px rgba(93, 64, 55, 0.15);
+  --departments-card-hover-shadow: 0 4px 16px rgba(93, 64, 55, 0.25);
+
+  --departments-icon-bg: var(--medicine-primary-red);
+  --departments-icon-size: 100px;
+
+  --departments-title-color: var(--medicine-primary-brown);
+  --departments-description-color: var(--medicine-dark-gray);
+
+  --departments-section-padding: 100px 0;
+  --departments-card-margin: 100px;
+}
+
+/* ===============================
+   🏥 Departments Section Container
+   =============================== */
+.departments-section {
+  padding: var(--departments-section-padding);
+  background: var(--departments-bg);
+}
+
+/* ===============================
+   📋 Section Title
+   =============================== */
+.section-title {
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.section-title h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--departments-title-color);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.title-underline {
+  background: url("../images/services/underline1.png") no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 120px;
+  height: 21px;
+  margin: 20px auto 0;
+}
+
+/* ===============================
+   🎴 Department Cards Grid
+   =============================== */
+.departments-grid {
+  margin-top: 50px;
+}
+
+/* ===============================
+   🎯 Department Card
+   =============================== */
+.department-card {
+  border: solid 1px var(--departments-card-border);
+  margin-bottom: var(--departments-card-margin);
+  position: relative;
+  background: var(--departments-card-bg);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.department-card:hover {
+  box-shadow: var(--departments-card-hover-shadow);
+  transform: translateY(-5px);
+  border-color: var(--medicine-primary-red-light);
+}
+
+/* ===============================
+   🎨 Card Icon
+   =============================== */
+.card-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--departments-icon-size);
+  height: var(--departments-icon-size);
+  background-color: var(--departments-icon-bg);
+  border: solid 3px var(--medicine-white);
+  border-radius: 50%;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(183, 28, 28, 0.3);
+  transition: all 0.3s ease;
+}
+
+.department-card:hover .card-icon {
+  background-color: var(--medicine-primary-red-light);
+  box-shadow: 0 6px 20px rgba(183, 28, 28, 0.4);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.icon-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* ===============================
+   📝 Card Content
+   =============================== */
+.card-content {
+  padding: 70px 40px 40px 40px;
+  text-align: center;
+}
+
+.card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--departments-title-color);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.department-card:hover .card-title {
+  color: var(--medicine-primary-red);
+}
+
+.card-description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.71;
+  text-align: center;
+  color: var(--departments-description-color);
+  margin: 0;
+}
+
+/* ===============================
+   📱 Responsive Design
+   =============================== */
+@media (max-width: 1024px) {
+  .departments-section {
+    padding: 80px 0;
+  }
+
+  .card-content {
+    padding: 60px 30px 30px 30px;
+  }
+
+  .department-card {
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .departments-section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    padding-bottom: 60px;
+  }
+
+  .section-title h3 {
+    font-size: 28px;
+  }
+
+  .card-content {
+    padding: 50px 20px 20px 20px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .card-description {
+    font-size: 13px;
+  }
+
+  .department-card {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .departments-section {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    padding-bottom: 40px;
+  }
+
+  .section-title h3 {
+    font-size: 24px;
+  }
+
+  .card-content {
+    padding: 40px 15px 15px 15px;
+  }
+
+  .card-title {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .card-description {
+    font-size: 12px;
+  }
+
+  .department-card {
+    margin-bottom: 40px;
+  }
+}
+
+/* ===============================
+   ♿ Accessibility & Focus States
+   =============================== */
+.department-card:focus {
+  outline: 2px solid var(--medicine-primary-red);
+  outline-offset: 2px;
+}
+
+.department-card:focus .card-icon {
+  box-shadow: 0 0 0 3px rgba(183, 28, 28, 0.3);
+}
+
+/* ===============================
+   🌙 Dark Theme Support (Optional)
+   =============================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --departments-bg: #2d2d2d;
+    --departments-text: #ffffff;
+    --departments-border: #444444;
+    --departments-card-bg: #1a1a1a;
+    --departments-title-color: #ffffff;
+    --departments-description-color: #cccccc;
+  }
+}
+
+/* ===============================
+   🎭 Animation Effects
+   =============================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.department-card {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.department-card:nth-child(1) { animation-delay: 0.1s; }
+.department-card:nth-child(2) { animation-delay: 0.2s; }
+.department-card:nth-child(3) { animation-delay: 0.3s; }
+.department-card:nth-child(4) { animation-delay: 0.4s; }
+.department-card:nth-child(5) { animation-delay: 0.5s; }
+.department-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* ===============================
+   📐 RTL Support
+   =============================== */
+[dir="ltr"] .card-content {
+  text-align: left;
+}
+
+[dir="ltr"] .card-title {
+  text-align: left;
+}
+
+[dir="ltr"] .card-description {
+  text-align: left;
+}

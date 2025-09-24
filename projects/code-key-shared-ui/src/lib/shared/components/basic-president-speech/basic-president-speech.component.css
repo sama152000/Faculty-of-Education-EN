@@ -1,0 +1,129 @@
+:root {
+  --president-primary: #3b4ba8;
+  --president-text: #2c3e50;
+  --president-muted: #5a6c7d;
+  --president-bg: #f8f9fa;
+}
+
+.president-message-section {
+  padding: 50px 0;
+  background: #ffffff;
+  color: var(--president-text);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.message-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  display: inline-block;
+  background: var(--president-primary);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.main-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  color: var(--president-text);
+}
+
+.president-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.president-profile {
+  background: var(--president-bg);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+}
+
+.president-image img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--president-primary);
+}
+
+.president-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--president-primary);
+}
+
+.president-title {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: var(--president-muted);
+}
+
+.president-credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.credential {
+  background: var(--president-primary);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+}
+
+.message-text {
+  direction: rtl;
+}
+
+.message-text h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: var(--president-primary);
+}
+
+.message-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--president-muted);
+  text-align: justify;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .president-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .president-image img {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .president-message-section {
+    padding: 30px 0;
+  }
+}

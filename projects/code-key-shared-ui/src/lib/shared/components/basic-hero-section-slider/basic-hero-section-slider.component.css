@@ -1,0 +1,127 @@
+:host {
+  --hero-bg-overlay: rgba(0, 0, 0, 0.3);
+  --hero-title-color: #ffffff;
+  --hero-subtitle-color: #e0e0e0;
+  --hero-text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --hero-cta-bg: rgba(30, 60, 114, 0.9);
+  --hero-cta-bg-hover: rgba(35, 75, 150, 0.9);
+  --hero-cta-color: #ffffff;
+  --hero-indicator-color: rgba(255, 255, 255, 0.4);
+  --hero-indicator-active: #0099c8;
+  --hero-font-family: "Cairo", sans-serif;
+}
+
+.hero-section {
+  width: 100%;
+  height: 98vh;
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--hero-font-family);
+}
+
+.slide-container {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1.2s ease-in-out;
+}
+
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--hero-bg-overlay);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.text-content {
+  color: white;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--hero-title-color);
+  text-shadow: var(--hero-text-shadow);
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--hero-subtitle-color);
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background: var(--hero-cta-bg);
+  color: var(--hero-cta-color);
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cta-button:hover {
+  background: var(--hero-cta-bg-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.slide-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--hero-indicator-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--hero-indicator-active);
+  transform: scale(1.2);
+}
