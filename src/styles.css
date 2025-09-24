@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Bootstrap CSS */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* PrimeNG CSS is now loaded via index.html to avoid bundler issues */
