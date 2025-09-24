@@ -47,7 +47,6 @@ export * from './lib/shared';
 
 // Department Components
 export * from './lib/pages/settings/Departments/Components/add-edit-department/add-edit-department.component';
-export * from './lib/pages/settings/Departments/pages/Departments/Departments.component';
 export * from './lib/pages/settings/Departments/Components/add-department-features/add-department-features.component';
 export * from './lib/pages/settings/Departments/Components/program-list/program-list.component';
 export * from './lib/pages/settings/Departments/Components/add-edit-program/add-edit-program.component';
