@@ -1,0 +1,127 @@
+<footer class="footer-container">
+  <!-- Top Section -->
+  <!-- <div class="footer-top">
+    <div class="container-fluid">
+       
+          </div>
+        </div> -->
+  
+
+  <!-- Middle Section: Three Columns -->
+  <div class="footer-middle">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Column 1: Quick Links and Social Media -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5 class="footer-title">Quick Links</h5>
+          <ul class="footer-links">
+            <li *ngFor="let link of quickLinks">
+              <a [href]="link.url" 
+                 [target]="link.external ? '_blank' : '_self'"
+                 class="footer-link">
+                <i class="pi pi-angle-right me-2"></i>
+                {{ link.label }}
+              </a>
+            </li>
+          </ul>
+          <div class="social-links d-flex justify-content-start mt-3">
+            <a *ngFor="let social of socialLinks" 
+               [href]="social.url" 
+               target="_blank" 
+               class="social-link" 
+               [title]="social.platform">
+              <i [class]="social.icon"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Main Navigation Shortcuts -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5 class="footer-title">Main Sections</h5>
+          <ul class="footer-links">
+            <li *ngFor="let item of footerNavItems">
+              <a [routerLink]="item.route" class="footer-link">
+                <i class="pi pi-angle-right me-2"></i>
+                {{ item.label }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact Information -->
+        <div class="col-lg-4 col-md-12 mb-4">
+          <h5 class="footer-title">Contact Information</h5>
+          
+          <div class="contact-info" *ngIf="contactInfo">
+            <!-- Address -->
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="pi pi-map-marker"></i>
+              </div>
+              <div class="contact-text">
+                <strong>Address:</strong>
+                <p class="mb-0">{{ contactInfo.address }}</p>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="pi pi-phone"></i>
+              </div>
+              <div class="contact-text">
+                <strong>Phone:</strong>
+                <p class="mb-0">
+                  <a href="tel:{{ contactInfo.phone }}" class="contact-link">
+                    {{ contactInfo.phone }}
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Emails -->
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="pi pi-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <strong>Emails:</strong>
+                <p class="mb-1">
+                  <small>Dean of the Faculty:</small><br>
+                  <a href="mailto:{{ contactInfo.emails.dean }}" class="contact-link">
+                    {{ contactInfo.emails.dean }}
+                  </a>
+                </p>
+                <p class="mb-0">
+                  <small>Educational Sciences Journal:</small><br>
+                  <a href="mailto:{{ contactInfo.emails.journal }}" class="contact-link">
+                    {{ contactInfo.emails.journal }}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Section: Copyright -->
+  <div class="footer-bottom">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-lg-8 col-md-7 text-md-start text-center">
+          <p class="copyright-text mb-0">
+            © {{ currentYear }} Faculty of Education – Luxor University. All rights reserved.
+          </p>
+        </div>
+        <div class="col-lg-4 col-md-5 text-md-end text-center mt-md-0 mt-2">
+          <div class="footer-bottom-links">
+            <a href="/privacy" class="bottom-link me-3">Privacy Policy</a>
+            <a href="/terms" class="bottom-link">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

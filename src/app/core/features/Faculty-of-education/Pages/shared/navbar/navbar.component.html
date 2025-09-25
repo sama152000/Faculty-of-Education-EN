@@ -1,0 +1,106 @@
+<nav class="navbar-container">
+  <!-- Top Navigation Bar -->
+  <div class="top-navbar">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center">
+        <!-- Left: Logo and Faculty Name -->
+        <div class="d-flex align-items-center">
+          <div class="faculty-logo me-3">
+            <img src="./assets/Picture1.png" 
+                 alt="Faculty Logo" class="logo-img">
+          </div>
+          <div class="faculty-info">
+            <h5 class="faculty-name mb-0">Faculty of Education – Luxor University</h5>
+          </div>
+        </div>
+
+        <!-- Right: University Link -->
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-primary-custom btn-sm" 
+                  (click)="navigateToUniversity()"
+                  title="Visit Luxor University">
+            <i class="pi pi-external-link me-1"></i>
+            University Website
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <div class="main-navbar">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center">
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle d-lg-none" 
+                (click)="toggleMenu()" 
+                [class.active]="isMenuOpen">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Navigation Menu -->
+        <ul class="navbar-nav" [class.active]="isMenuOpen">
+          <li class="nav-item" 
+              *ngFor="let item of navItems" 
+              [class.has-dropdown]="item.children && item.children.length > 0"
+              [class.dropdown-open]="isDropdownOpen(item.id)">
+            
+            <!-- Main Nav Link -->
+            <a class="nav-link" 
+               [routerLink]="item.route || null"
+               [class.external]="item.external"
+               (click)="handleItemClick(item)">
+              <span>{{ item.label }}</span>
+              <i *ngIf="item.children && item.children.length > 0" 
+                 class="pi pi-chevron-down dropdown-icon"
+                 [class.rotated]="isDropdownOpen(item.id)"></i>
+            </a>
+
+            <!-- Dropdown Menu -->
+            <div class="dropdown-menu" *ngIf="item.children && item.children.length > 0">
+              <div class="dropdown-content">
+                <div class="dropdown-item" *ngFor="let child of item.children">
+                  <!-- Dropdown Item with Sub-dropdown -->
+                  <div *ngIf="child.children && child.children.length > 0" 
+                       class="dropdown-item-with-children"
+                       [class.expanded]="isDropdownOpen(child.id)">
+                    <a class="dropdown-link" 
+                       (click)="toggleDropdown(child.id, $event)">
+                      <span>{{ child.label }}</span>
+                      <i class="pi pi-chevron-right sub-dropdown-icon"
+                         [class.rotated]="isDropdownOpen(child.id)"></i>
+                    </a>
+                    
+                    <div class="sub-dropdown-menu" [class.show]="isDropdownOpen(child.id)">
+                      <a class="sub-dropdown-link" 
+                         *ngFor="let grandchild of child.children"
+                         [routerLink]="grandchild.route"
+                         (click)="closeAllDropdowns()">
+                        {{ grandchild.label }}
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Simple Dropdown Item -->
+                  <a *ngIf="!child.children || child.children.length === 0" 
+                     class="dropdown-link" 
+                     [routerLink]="child.route"
+                     (click)="closeAllDropdowns()">
+                    {{ child.label }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-overlay" 
+       [class.active]="isMenuOpen" 
+       (click)="toggleMenu()"></div>
+</nav>

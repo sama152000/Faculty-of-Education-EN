@@ -1,0 +1,46 @@
+<section class="new-programs-section" style="padding: var(--section-padding);">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="section-title text-accent-custom animate-fadeInUp">New Programs</h2>
+        <p class="section-subtitle animate-fadeInUp">Innovative teacher preparation programs taught in English</p>
+        <div class="title-decoration">
+          <div class="decoration-line"></div>
+          <i class="pi pi-star decoration-icon"></i>
+          <div class="decoration-line"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-lg-6" *ngFor="let program of newPrograms; let i = index">
+        <div class="program-card card-custom" [class]="'animate-fadeInUp delay-' + (i + 1)">
+          <div class="program-badge">
+            <span class="badge-text">NEW</span>
+            <i class="pi pi-sparkles badge-icon"></i>
+          </div>
+          
+          <div class="program-header">
+            <div class="program-number">{{ i + 1 }}️⃣</div>
+            <div class="program-icon">
+              <i [class]="program.icon"></i>
+            </div>
+          </div>
+          
+          <div class="program-content">
+            <h4 class="program-title">{{ program.name }}</h4>
+            <div class="program-divider"></div>
+            <p class="program-description">{{ program.description }}</p>
+          </div>
+          
+          <div class="program-footer">
+            <button class="btn btn-accent-custom">
+              <i class="pi pi-arrow-right me-2"></i>
+              Explore Program
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

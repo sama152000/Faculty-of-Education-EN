@@ -1,0 +1,34 @@
+<section class="departments-section" style="padding: var(--section-padding);">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="section-title text-secondary-custom animate-fadeInUp">Faculty Departments</h2>
+        <p class="section-subtitle animate-fadeInUp">Specialized academic departments driving educational excellence</p>
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-lg-6 col-xl-4" *ngFor="let department of departments; let i = index">
+        <div class="department-card card-custom" [class]="'animate-fadeInUp delay-' + (i + 1)">
+          <div class="department-header">
+            <div class="department-number">{{ department.order }}️⃣</div>
+            <div class="department-icon">
+              <i [class]="department.icon"></i>
+            </div>
+          </div>
+          <div class="department-content">
+            <h4 class="department-title">{{ department.name }}</h4>
+            <div class="department-divider"></div>
+            <p class="department-description">{{ department.description }}</p>
+          </div>
+          <div class="department-footer">
+            <button class="btn btn-outline-primary-custom btn-sm">
+              <i class="pi pi-arrow-right me-1"></i>
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+<section class="faculty-journal-section" style="padding: var(--section-padding);">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="section-title text-primary-custom animate-fadeInUp">Faculty Journal</h2>
+        <p class="section-subtitle animate-fadeInUp">Advancing educational research and scholarly excellence</p>
+      </div>
+    </div>
+    
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-8">
+        <div class="journal-card card-custom animate-fadeInUp">
+          <div class="journal-header">
+            <div class="journal-icon">
+              <i [class]="journalInfo.icon"></i>
+            </div>
+            <div class="journal-badge">
+              <span class="badge-text">📰</span>
+            </div>
+          </div>
+          
+          <div class="journal-content">
+            <h3 class="journal-title">{{ journalInfo.title }}</h3>
+            <div class="journal-divider"></div>
+            <p class="journal-description">{{ journalInfo.description }}</p>
+            
+            <div class="journal-features">
+              <div class="feature-item">
+                <i class="pi pi-check-circle feature-icon"></i>
+                <span>Peer-reviewed</span>
+              </div>
+              <div class="feature-item">
+                <i class="pi pi-check-circle feature-icon"></i>
+                <span>Scientific integrity</span>
+              </div>
+              <div class="feature-item">
+                <i class="pi pi-check-circle feature-icon"></i>
+                <span>Educational research</span>
+              </div>
+              <div class="feature-item">
+                <i class="pi pi-check-circle feature-icon"></i>
+                <span>High academic standards</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="journal-footer">
+            <button class="btn btn-primary-custom btn-lg" (click)="openJournal()">
+              <i class="pi pi-external-link me-2"></i>
+              Visit Journal Website
+              <span class="btn-decoration">🔗</span>
+            </button>
+            <p class="journal-link-text">
+              <strong>Direct Link:</strong> 
+              <a [href]="journalInfo.url" target="_blank" class="journal-url">{{ journalInfo.url }}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
