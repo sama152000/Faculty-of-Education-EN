@@ -1,26 +1,13 @@
-<section class="staff-members-section">
-  <div class="container-fluid">
-    <!-- Section Header -->
-    <div class="section-header">
-      <div class="header-content">
-        <h2 class="section-title">Staff Members</h2>
-        <p class="section-subtitle">
-          Meet our dedicated team of professionals committed to educational excellence
-        </p>
-      </div>
-      <div class="staff-stats">
-        <div class="stat-item">
-          <div class="stat-number">{{ staffMembers.length }}</div>
-          <div class="stat-label">Total Staff</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">{{ departments.length }}</div>
-          <div class="stat-label">Departments</div>
-        </div>
-      </div>
-    </div>
+<app-page-header [title]="'Staff Members'" [breadcrumbs]="[{label: 'About Us'}, {label: 'Staff Members'}]"></app-page-header>
 
-    <!-- Filters Section -->
+<section class="staff-members-section">
+<div class="container-fluid">
+  <!-- Page Subtitle -->
+  <div class="page-subtitle">
+    <p>Meet our dedicated team of professionals committed to educational excellence</p>
+  </div>
+
+  <!-- Filters Section -->
     <div class="filters-section">
       <div class="filters-container">
         <!-- Search Input -->
@@ -127,3 +114,4 @@
     </div>
   </div>
 </section>
+<app-footer></app-footer>

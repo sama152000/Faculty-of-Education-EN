@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FacultyDataService } from '../../../Services/faculty-data.service';
 import { StaffMember } from '../../../model/services.model';
+import { FooterComponent } from "../../shared/footer/footer.component";
+import { PageHeaderComponent } from "../../shared/page-header/page-header.component";
 
 @Component({
   selector: 'app-staff-members',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FooterComponent, PageHeaderComponent],
   templateUrl: './staff-members.component.html',
   styleUrls: ['./staff-members.component.css']
 })
@@ -16,6 +18,7 @@ export class StaffMembersComponent implements OnInit {
   departments: string[] = [];
   selectedDepartment: string = 'all';
   searchTerm: string = '';
+  currentTab: string = '/about-us/staff-members';
 
   constructor(private facultyDataService: FacultyDataService) {}
 
@@ -57,8 +60,8 @@ export class StaffMembersComponent implements OnInit {
 
   getDepartmentColor(department: string): string {
     const colors = [
-      '#3b82f6', '#10b981', '#f59e0b', '#ef4444',
-      '#8b5cf6', '#06b6d4', '#84cc16', '#f97316'
+      'var(--primary-color)',  'var(--primary-color)',  'var(--primary-color)', 'var(--primary-color)',
+       'var(--primary-color)',  'var(--primary-color)',  'var(--primary-color)',  'var(--primary-color)'
     ];
     const index = this.departments.indexOf(department) % colors.length;
     return colors[index];
