@@ -1,7 +1,11 @@
 .vision-mission-section {
-  background-color: var(--bg-light);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+
   position: relative;
   overflow: hidden;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+ 
 }
 
 .vision-mission-section::before {
@@ -11,7 +15,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(143, 194, 231, 0.05) 0%, rgba(254, 227, 54, 0.05) 100%);
   z-index: 1;
 }
 
@@ -24,18 +27,19 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color:var(--dark-primary-color) !important;
 }
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: var(--text-light);
+  color: var(--dark-primary-color);
   max-width: 600px;
   margin: 0 auto;
 }
 
 .vision-card {
   position: relative;
-  height: 400px;
+  height: 250px;
   border: none;
   border-radius: var(--border-radius-xl);
   overflow: hidden;
@@ -48,6 +52,12 @@
   justify-content: center;
   text-align: center;
   padding: var(--padding-xxl);
+  background: linear-gradient(
+    135deg,
+    #77a6c7c0 0%,
+    #344a5ae5 100%
+  ) !important;
+
 }
 
 .vision-card:hover {
@@ -61,13 +71,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-.vision-card:hover .card-overlay {
-  background: rgba(0, 0, 0, 0.2);
-}
 
 .card-icon {
   position: relative;

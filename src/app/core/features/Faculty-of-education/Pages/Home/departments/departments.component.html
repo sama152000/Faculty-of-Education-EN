@@ -1,32 +1,87 @@
-<section class="departments-section" style="padding: var(--section-padding);">
+<section class="departments-section">
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 text-center mb-5">
-        <h2 class="section-title text-secondary-custom animate-fadeInUp">Faculty Departments</h2>
-        <p class="section-subtitle animate-fadeInUp">Specialized academic departments driving educational excellence</p>
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="header-content">
+        <h2 class="section-title">Faculty Departments</h2>
+        <p class="section-subtitle">
+          Specialized academic departments driving educational excellence and innovation
+        </p>
       </div>
     </div>
-    
-    <div class="row g-4">
-      <div class="col-lg-6 col-xl-4" *ngFor="let department of departments; let i = index">
-        <div class="department-card card-custom" [class]="'animate-fadeInUp delay-' + (i + 1)">
-          <div class="department-header">
-            <div class="department-number">{{ department.order }}️⃣</div>
+
+    <!-- Departments Slider -->
+    <div class="departments-container">
+      <div class="departments-slider" #slider>
+        <!-- First set of cards -->
+        <div class="department-card"
+             *ngFor="let department of departments; let i = index"
+             [style.animation-delay.ms]="i * 150">
+
+          <!-- Card Header -->
+          <div class="card-header">
+            <div class="department-number">
+              <span class="number-text">{{ department.order.toString().padStart(2, '0') }}</span>
+            </div>
             <div class="department-icon">
               <i [class]="department.icon"></i>
+              <div class="icon-glow"></div>
             </div>
           </div>
-          <div class="department-content">
+
+          <!-- Card Content -->
+          <div class="card-content">
             <h4 class="department-title">{{ department.name }}</h4>
-            <div class="department-divider"></div>
+            <div class="title-underline"></div>
             <p class="department-description">{{ department.description }}</p>
           </div>
-          <div class="department-footer">
-            <button class="btn btn-outline-primary-custom btn-sm">
-              <i class="pi pi-arrow-right me-1"></i>
-              Learn More
+
+          <!-- Card Footer -->
+          <div class="card-footer">
+            <button class="explore-btn" type="button">
+              <span class="btn-text">Explore</span>
+              <i class="pi pi-arrow-right btn-icon"></i>
             </button>
           </div>
+
+          <!-- Decorative Elements -->
+          <div class="card-decoration top-left"></div>
+          <div class="card-decoration bottom-right"></div>
+        </div>
+        <!-- Duplicate set for continuous sliding -->
+        <div class="department-card"
+             *ngFor="let department of departments; let i = index"
+             [style.animation-delay.ms]="i * 150">
+
+          <!-- Card Header -->
+          <div class="card-header">
+            <div class="department-number">
+              <span class="number-text">{{ department.order.toString().padStart(2, '0') }}</span>
+            </div>
+            <div class="department-icon">
+              <i [class]="department.icon"></i>
+              <div class="icon-glow"></div>
+            </div>
+          </div>
+
+          <!-- Card Content -->
+          <div class="card-content">
+            <h4 class="department-title">{{ department.name }}</h4>
+            <div class="title-underline"></div>
+            <p class="department-description">{{ department.description }}</p>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="card-footer">
+            <button class="explore-btn" type="button">
+              <span class="btn-text">Explore</span>
+              <i class="pi pi-arrow-right btn-icon"></i>
+            </button>
+          </div>
+
+          <!-- Decorative Elements -->
+          <div class="card-decoration top-left"></div>
+          <div class="card-decoration bottom-right"></div>
         </div>
       </div>
     </div>

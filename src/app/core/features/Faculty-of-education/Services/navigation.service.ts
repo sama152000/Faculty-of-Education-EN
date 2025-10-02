@@ -16,6 +16,26 @@ export class NavigationService {
       label: 'Contact Us',
       route: '/contact'
     },
+     {
+      id: 'About Us',
+      label: 'About Us',
+      children: [
+        {
+          id: 'dean word',
+          label: 'Dean Word',
+          route: '/about-us/dean-word'
+        },
+        {
+          id: 'vision-mission',
+          label: 'Vision-Mission',
+          route: '/about-us/vision-mission'
+        },
+        {
+          id: 'Staff members',
+          label: 'Staff Members',
+          route: '/about-us/staff-members'
+        }]
+    },
     {
       id: 'news-events',
       label: 'News & Events',

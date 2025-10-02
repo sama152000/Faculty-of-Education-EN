@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { FacultyOfEducationComponent } from './core/features/Faculty-of-education/Faculty-of-education.component';
 import { HomeComponent } from './core/features/Faculty-of-education/Pages/Home/Home.component';
+import { NewsEventsComponent } from './core/features/Faculty-of-education/Pages/news-events/news-events.component';
+import { StaffMembersComponent } from './core/features/Faculty-of-education/Pages/about-us/staff-members/staff-members.component';
 
 export const routes: Routes = [
 
@@ -10,7 +12,8 @@ export const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'contact', component: HomeComponent },
-      { path: 'news-events', component: HomeComponent },
+      {path:'about-us/staff-members', component : StaffMembersComponent},
+      { path: 'news-events', component: NewsEventsComponent },
       { path: 'units', component: HomeComponent },
       { path: 'labs/computer', component: HomeComponent },
       { path: 'labs/mental-health', component: HomeComponent },

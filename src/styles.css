@@ -10,10 +10,16 @@
 /* Global Color Variables for Faculty of Education - Luxor University */
 :root {
   /* Main Colors from Logo */
-  --primary-color: #8FC2E7;      /* Light Blue */
+  --primary-color: #77a6c7;
+  --dark-primary-color: #344a5a;
+    --dark-primary-color-o: #344a5a62;
+
   --secondary-color: #542F22;    /* Dark Brown */
-  --accent-color: #FEE336;       /* Yellow */
-    --nano-color: #8fc2e72d;      /* Light Blue */
+  --accent-color: #E6CC2F; 
+    --dark-accent-color: #E6CC2F; 
+
+        /* Yellow */
+    --nano-color: #8fc2e779;      /* Light Blue */
 
   
   /* Background Colors */
@@ -342,4 +348,11 @@ html {
     padding-left: var(--padding-sm);
     padding-right: var(--padding-sm);
   }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color:var(--dark-primary-color) !important;
 }

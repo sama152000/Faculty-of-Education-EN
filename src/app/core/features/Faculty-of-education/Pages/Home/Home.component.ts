@@ -5,12 +5,14 @@ import { VisionMissionComponent } from "./vision-mission/vision-mission.componen
 import { DepartmentsComponent } from "./departments/departments.component";
 import { NewProgramsComponent } from "./new-programs/new-programs.component";
 import { FacultyJournalComponent } from "./faculty-journal/faculty-journal.component";
+import { StatisticsComponent } from "./statistics/statistics.component";
+import { StudentServicesComponent } from "./student-services/student-services.component";
 
 @Component({
   selector: 'app-Home',
   templateUrl: './Home.component.html',
   styleUrls: ['./Home.component.css'],
-  imports: [HeroComponent, FooterComponent, VisionMissionComponent, DepartmentsComponent, NewProgramsComponent, FacultyJournalComponent]
+  imports: [HeroComponent, FooterComponent, VisionMissionComponent, DepartmentsComponent, NewProgramsComponent, FacultyJournalComponent, StatisticsComponent, StudentServicesComponent]
 })
 export class HomeComponent implements OnInit {
 

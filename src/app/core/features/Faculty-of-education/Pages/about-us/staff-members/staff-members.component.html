@@ -1,0 +1,129 @@
+<section class="staff-members-section">
+  <div class="container-fluid">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="header-content">
+        <h2 class="section-title">Staff Members</h2>
+        <p class="section-subtitle">
+          Meet our dedicated team of professionals committed to educational excellence
+        </p>
+      </div>
+      <div class="staff-stats">
+        <div class="stat-item">
+          <div class="stat-number">{{ staffMembers.length }}</div>
+          <div class="stat-label">Total Staff</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">{{ departments.length }}</div>
+          <div class="stat-label">Departments</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters Section -->
+    <div class="filters-section">
+      <div class="filters-container">
+        <!-- Search Input -->
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <i class="pi pi-search search-icon"></i>
+            <input 
+              type="text" 
+              class="search-input" 
+              placeholder="Search by name or position..."
+              (input)="onSearchChange($event)">
+          </div>
+        </div>
+
+        <!-- Department Filter -->
+        <div class="department-filter">
+          <div class="filter-label">Filter by Department:</div>
+          <div class="department-buttons">
+            <button 
+              class="dept-button"
+              [class.active]="selectedDepartment === 'all'"
+              (click)="filterByDepartment('all')">
+              All Departments
+            </button>
+            <button 
+              *ngFor="let dept of departments" 
+              class="dept-button"
+              [class.active]="selectedDepartment === dept"
+              [style.border-color]="getDepartmentColor(dept)"
+              (click)="filterByDepartment(dept)">
+              {{ dept }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Staff Members Grid -->
+    <div class="staff-grid">
+      <div class="results-header" *ngIf="filteredStaff.length !== staffMembers.length">
+        <div class="results-count">
+          Showing {{ filteredStaff.length }} of {{ staffMembers.length }} staff members
+        </div>
+      </div>
+
+      <div class="members-grid">
+        <div 
+          class="staff-card" 
+          *ngFor="let member of filteredStaff; let i = index"
+          [style.animation-delay.ms]="i * 100">
+          
+          <!-- Card Header -->
+          <div class="card-header">
+            <div class="member-avatar">
+              <div class="avatar-circle" [style.background-color]="getDepartmentColor(member.department || 'General')">
+                <span class="avatar-initials">{{ getInitials(member.name) }}</span>
+              </div>
+              <div class="member-id">#{{ member.id.toString().padStart(2, '0') }}</div>
+            </div>
+            <div class="department-badge" [style.background-color]="getDepartmentColor(member.department || 'General')">
+              {{ member.department || 'General' }}
+            </div>
+          </div>
+
+          <!-- Card Body -->
+          <div class="card-body">
+            <h3 class="member-name">{{ member.name }}</h3>
+            <p class="member-position">{{ member.position }}</p>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="card-footer">
+            <div class="contact-info">
+              <div class="phone-info">
+                <i class="pi pi-phone contact-icon"></i>
+                <span class="phone-number">{{ member.phone }}</span>
+              </div>
+            </div>
+            <button 
+              class="call-button" 
+              (click)="callPhone(member.phone)"
+              title="Call {{ member.name }}">
+              <i class="pi pi-phone"></i>
+              <span>Call</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Results Message -->
+      <div class="no-results" *ngIf="filteredStaff.length === 0">
+        <div class="no-results-icon">
+          <i class="pi pi-search"></i>
+        </div>
+        <h3 class="no-results-title">No Staff Members Found</h3>
+        <p class="no-results-text">
+          Try adjusting your search criteria or department filter
+        </p>
+        <button class="reset-button" (click)="filterByDepartment('all'); searchTerm = ''">
+          <i class="pi pi-refresh"></i>
+          Reset Filters
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

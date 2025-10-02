@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DepartmentService } from '../../../Services/department.service';
 import { Department } from '../../../model/department.model';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-departments',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,
+FormsModule
+  ],
   templateUrl: './departments.component.html',
   styleUrls: ['./departments.component.css']
 })

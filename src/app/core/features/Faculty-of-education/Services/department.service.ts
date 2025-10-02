@@ -36,7 +36,7 @@ export class DepartmentService {
     },
     {
       id: 'comparative-education',
-      name: 'Department of Comparative Education & Educational Administration',
+      name: 'Department of Comparative Education ',
       description: 'Concerned with the study of educational systems worldwide and the management of educational institutions using modern and effective approaches.',
       icon: 'pi pi-globe',
       order: 5

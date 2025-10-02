@@ -1,62 +1,106 @@
-<section class="faculty-journal-section" style="padding: var(--section-padding);">
+<section class="faculty-journal-section">
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 text-center mb-5">
-        <h2 class="section-title text-primary-custom animate-fadeInUp">Faculty Journal</h2>
-        <p class="section-subtitle animate-fadeInUp">Advancing educational research and scholarly excellence</p>
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="header-content">
+        
+        <h2 class="section-title">Faculty Journal</h2>
+        <p class="section-subtitle">
+          Advancing educational research and scholarly excellence through peer-reviewed publications
+        </p>
+        
       </div>
     </div>
-    
-    <div class="row justify-content-center">
-      <div class="col-lg-10 col-xl-8">
-        <div class="journal-card card-custom animate-fadeInUp">
-          <div class="journal-header">
-            <div class="journal-icon">
-              <i [class]="journalInfo.icon"></i>
-            </div>
-            <div class="journal-badge">
-              <span class="badge-text">📰</span>
-            </div>
-          </div>
-          
-          <div class="journal-content">
-            <h3 class="journal-title">{{ journalInfo.title }}</h3>
-            <div class="journal-divider"></div>
-            <p class="journal-description">{{ journalInfo.description }}</p>
+
+    <!-- Journal Card -->
+    <div class="journal-container">
+      <div class="journal-card">
+        <div class="card-background">
+          <div class="bg-pattern"></div>
+          <div class="bg-gradient"></div>
+        </div>
+
+        <div class="journal-content">
+          <div class="content-left">
+            <!-- Journal Header -->
+            <div class="journal-header">
+              <div class="journal-icon-wrapper">
+                <div class="journal-icon">
+                  <i [class]="journalInfo.icon"></i>
+                  <div class="icon-rings">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+                  </div>
+                </div>
+              </div>
+              
             
-            <div class="journal-features">
-              <div class="feature-item">
-                <i class="pi pi-check-circle feature-icon"></i>
-                <span>Peer-reviewed</span>
-              </div>
-              <div class="feature-item">
-                <i class="pi pi-check-circle feature-icon"></i>
-                <span>Scientific integrity</span>
-              </div>
-              <div class="feature-item">
-                <i class="pi pi-check-circle feature-icon"></i>
-                <span>Educational research</span>
-              </div>
-              <div class="feature-item">
-                <i class="pi pi-check-circle feature-icon"></i>
-                <span>High academic standards</span>
+            </div>
+
+            <!-- Journal Info -->
+            <div class="journal-info">
+              <h3 class="journal-title">{{ journalInfo.title }}</h3>
+              <div class="title-underline"></div>
+              <p class="journal-description">{{ journalInfo.description }}</p>
+            </div>
+
+            <!-- Journal Actions -->
+            <div class="journal-actions">
+              <button class="primary-btn" (click)="openJournal()" type="button">
+                <div class="btn-content">
+                  <i class="pi pi-external-link btn-icon"></i>
+                  <span class="btn-text">Visit Journal</span>
+                </div>
+                <div class="btn-glow"></div>
+              </button>
+              
+              <div class="journal-link-info">
+                <span class="link-label">Direct Access:</span>
+                <a [href]="journalInfo.url" target="_blank" class="journal-url">
+                  {{ journalInfo.url }}
+                </a>
               </div>
             </div>
           </div>
-          
-          <div class="journal-footer">
-            <button class="btn btn-primary-custom btn-lg" (click)="openJournal()">
-              <i class="pi pi-external-link me-2"></i>
-              Visit Journal Website
-              <span class="btn-decoration">🔗</span>
-            </button>
-            <p class="journal-link-text">
-              <strong>Direct Link:</strong> 
-              <a [href]="journalInfo.url" target="_blank" class="journal-url">{{ journalInfo.url }}</a>
-            </p>
+
+          <div class="content-right">
+            <!-- Magazine Preview -->
+            <div class="magazine-preview">
+              <div class="magazine-container">
+                <div class="magazine-cover">
+                  <img src="assets/slide1.jpg" alt="Faculty Journal Cover" class="cover-image">
+                  <div class="cover-overlay">
+                    <div class="overlay-content">
+                      <h4 class="overlay-title">Latest Edition</h4>
+                      <p class="overlay-subtitle">Volume 2024 • Issue 1</p>
+                      <div class="overlay-badge">
+                        <i class="pi pi-star"></i>
+                        <span>Featured Research</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+              <!-- Journal Features
+              <div class="journal-features">
+                <div class="features-grid">
+                  <div class="feature-item" *ngFor="let feature of journalFeatures; let i = index" 
+                       [style.animation-delay.ms]="i * 100">
+                    <div class="feature-icon">
+                      <i [class]="feature.icon"></i>
+                    </div>
+                    <div class="feature-content">
+                      <h5 class="feature-title">{{ feature.title }}</h5>
+                      <p class="feature-description">{{ feature.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div> -->

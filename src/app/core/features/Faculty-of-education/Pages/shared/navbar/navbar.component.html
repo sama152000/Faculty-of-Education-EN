@@ -2,94 +2,162 @@
   <!-- Top Navigation Bar -->
   <div class="top-navbar">
     <div class="container-fluid">
-      <div class="d-flex justify-content-between align-items-center">
-        <!-- Left: Logo and Faculty Name -->
-        <div class="d-flex align-items-center">
-          <div class="faculty-logo me-3">
-            <img src="./assets/Picture1.png" 
-                 alt="Faculty Logo" class="logo-img">
+      <div class="navbar-brand-section">
+        <!-- Logo and Faculty Info -->
+        <div class="brand-content">
+          <div class="faculty-logo">
+            <img src="./assets/Picture1.png" alt="Faculty of Education Logo" class="logo-img">
           </div>
           <div class="faculty-info">
-            <h5 class="faculty-name mb-0">Faculty of Education – Luxor University</h5>
+            <h1 class="faculty-name">Faculty of Education</h1>
+            <p class="university-name">Luxor University</p>
           </div>
         </div>
-
-        <!-- Right: University Link -->
-        <div class="d-flex align-items-center gap-3">
-          <button class="btn btn-primary-custom btn-sm" 
+        
+        <!-- University Link -->
+        <div class="university-actions">
+          <button class="btn-university" 
                   (click)="navigateToUniversity()"
-                  title="Visit Luxor University">
-            <i class="pi pi-external-link me-1"></i>
-            University Website
+                  title="Visit Luxor University Website">
+            <i class="pi pi-external-link"></i>
+            <span>University Website</span>
           </button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Main Navigation Bar -->
+  <!-- Main Navigation -->
   <div class="main-navbar">
     <div class="container-fluid">
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="nav-wrapper">
         <!-- Mobile Menu Toggle -->
-        <button class="mobile-menu-toggle d-lg-none" 
-                (click)="toggleMenu()" 
-                [class.active]="isMenuOpen">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="mobile-menu-toggle"
+                (click)="toggleMenu()"
+                [class.active]="isMenuOpen"
+                aria-label="Toggle navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
         </button>
 
-        <!-- Navigation Menu -->
-        <ul class="navbar-nav" [class.active]="isMenuOpen">
-          <li class="nav-item" 
-              *ngFor="let item of navItems" 
+        <!-- Combined Navigation Menu -->
+        <ul class="navbar-nav" [class.mobile-active]="isMenuOpen">
+          <!-- First Row Items -->
+          <li class="nav-item"
+              *ngFor="let item of firstRowItems"
               [class.has-dropdown]="item.children && item.children.length > 0"
               [class.dropdown-open]="isDropdownOpen(item.id)">
-            
-            <!-- Main Nav Link -->
-            <a class="nav-link" 
+
+            <!-- Main Navigation Link -->
+            <a class="nav-link"
                [routerLink]="item.route || null"
                [class.external]="item.external"
-               (click)="handleItemClick(item)">
-              <span>{{ item.label }}</span>
-              <i *ngIf="item.children && item.children.length > 0" 
-                 class="pi pi-chevron-down dropdown-icon"
+               (click)="handleItemClick(item, $event)"
+               [attr.aria-expanded]="item.children && item.children.length > 0 ? isDropdownOpen(item.id) : null">
+              <span class="nav-text">{{ item.label }}</span>
+              <i *ngIf="item.children && item.children.length > 0"
+                 class="pi pi-chevron-down dropdown-arrow"
                  [class.rotated]="isDropdownOpen(item.id)"></i>
             </a>
 
             <!-- Dropdown Menu -->
-            <div class="dropdown-menu" *ngIf="item.children && item.children.length > 0">
+            <div class="dropdown-menu"
+                 *ngIf="item.children && item.children.length > 0"
+                 [class.show]="isDropdownOpen(item.id)">
               <div class="dropdown-content">
-                <div class="dropdown-item" *ngFor="let child of item.children">
-                  <!-- Dropdown Item with Sub-dropdown -->
-                  <div *ngIf="child.children && child.children.length > 0" 
-                       class="dropdown-item-with-children"
-                       [class.expanded]="isDropdownOpen(child.id)">
-                    <a class="dropdown-link" 
-                       (click)="toggleDropdown(child.id, $event)">
+                <div class="dropdown-item-wrapper" *ngFor="let child of item.children">
+                  <!-- Item with Sub-dropdown -->
+                  <div *ngIf="child.children && child.children.length > 0"
+                       class="dropdown-item has-sub"
+                       [class.sub-open]="isDropdownOpen(child.id)">
+                    <a class="dropdown-link"
+                       (click)="toggleDropdown(child.id, $event)"
+                       [attr.aria-expanded]="isDropdownOpen(child.id)">
                       <span>{{ child.label }}</span>
-                      <i class="pi pi-chevron-right sub-dropdown-icon"
+                      <i class="pi pi-chevron-right sub-arrow"
                          [class.rotated]="isDropdownOpen(child.id)"></i>
                     </a>
-                    
+
                     <div class="sub-dropdown-menu" [class.show]="isDropdownOpen(child.id)">
-                      <a class="sub-dropdown-link" 
+                      <a class="sub-dropdown-link"
                          *ngFor="let grandchild of child.children"
                          [routerLink]="grandchild.route"
                          (click)="closeAllDropdowns()">
-                        {{ grandchild.label }}
+                        <span>{{ grandchild.label }}</span>
                       </a>
                     </div>
                   </div>
 
                   <!-- Simple Dropdown Item -->
-                  <a *ngIf="!child.children || child.children.length === 0" 
-                     class="dropdown-link" 
-                     [routerLink]="child.route"
-                     (click)="closeAllDropdowns()">
-                    {{ child.label }}
-                  </a>
+                  <div *ngIf="!child.children || child.children.length === 0"
+                       class="dropdown-item">
+                    <a class="dropdown-link"
+                       [routerLink]="child.route"
+                       (click)="closeAllDropdowns()">
+                      <span>{{ child.label }}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Second Row Items -->
+          <li class="nav-item"
+              *ngFor="let item of secondRowItems"
+              [class.has-dropdown]="item.children && item.children.length > 0"
+              [class.dropdown-open]="isDropdownOpen(item.id)">
+
+            <!-- Main Navigation Link -->
+             <a class="nav-link"
+               [routerLink]="item.route || null"
+               [class.external]="item.external"
+               (click)="handleItemClick(item, $event)"
+               [attr.aria-expanded]="item.children && item.children.length > 0 ? isDropdownOpen(item.id) : null">
+              <span class="nav-text">{{ item.label }}</span>
+              <i *ngIf="item.children && item.children.length > 0"
+                 class="pi pi-chevron-down dropdown-arrow"
+                 [class.rotated]="isDropdownOpen(item.id)"></i>
+            </a>
+
+            <!-- Dropdown Menu -->
+            <div class="dropdown-menu"
+                 *ngIf="item.children && item.children.length > 0"
+                 [class.show]="isDropdownOpen(item.id)">
+              <div class="dropdown-content">
+                <div class="dropdown-item-wrapper" *ngFor="let child of item.children">
+                  <!-- Item with Sub-dropdown -->
+                  <div *ngIf="child.children && child.children.length > 0"
+                       class="dropdown-item has-sub"
+                       [class.sub-open]="isDropdownOpen(child.id)">
+                    <a class="dropdown-link"
+                       (click)="toggleDropdown(child.id, $event)"
+                       [attr.aria-expanded]="isDropdownOpen(child.id)">
+                      <span>{{ child.label }}</span>
+                      <i class="pi pi-chevron-right sub-arrow"
+                         [class.rotated]="isDropdownOpen(child.id)"></i>
+                    </a>
+
+                    <div class="sub-dropdown-menu" [class.show]="isDropdownOpen(child.id)">
+                      <a class="sub-dropdown-link"
+                         *ngFor="let grandchild of child.children"
+                         [routerLink]="grandchild.route"
+                         (click)="closeAllDropdowns()">
+                        <span>{{ grandchild.label }}</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Simple Dropdown Item -->
+                  <div *ngIf="!child.children || child.children.length === 0"
+                       class="dropdown-item">
+                    <a class="dropdown-link"
+                       [routerLink]="child.route"
+                       (click)="closeAllDropdowns()">
+                      <span>{{ child.label }}</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -99,8 +167,9 @@
     </div>
   </div>
 
-  <!-- Mobile Menu Overlay -->
+  <!-- Mobile Overlay -->
   <div class="mobile-overlay" 
        [class.active]="isMenuOpen" 
-       (click)="toggleMenu()"></div>
+       (click)="toggleMenu()"
+       aria-hidden="true"></div>
 </nav>

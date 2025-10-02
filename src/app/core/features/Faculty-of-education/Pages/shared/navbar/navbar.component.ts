@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NavigationService } from '../../../Services/navigation.service';
@@ -13,6 +13,8 @@ import { NavItem } from '../../../model/navigation.model';
 })
 export class NavbarComponent implements OnInit {
   navItems: NavItem[] = [];
+  firstRowItems: NavItem[] = [];
+  secondRowItems: NavItem[] = [];
   isMenuOpen = false;
   openDropdowns: Set<string> = new Set();
   mainIds: Set<string> = new Set();
@@ -22,6 +24,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.navItems = this.navigationService.getMainNavItems();
     this.mainIds = new Set(this.navItems.map(item => item.id));
+    const mid = Math.ceil(this.navItems.length / 2);
+    this.firstRowItems = this.navItems.slice(0, mid);
+    this.secondRowItems = this.navItems.slice(mid);
   }
 
   toggleMenu(): void {
@@ -57,11 +62,24 @@ export class NavbarComponent implements OnInit {
     window.open('http://www.luxor.edu.eg/#/', '_blank');
   }
 
-  handleItemClick(item: NavItem): void {
+  handleItemClick(item: NavItem, event?: Event): void {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
     if (item.external && item.url) {
       window.open(item.url, '_blank');
     } else if (item.children && item.children.length > 0) {
       this.toggleDropdown(item.id);
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    const navbar = target.closest('.navbar-container');
+    if (!navbar) {
+      this.closeAllDropdowns();
     }
   }
 }
