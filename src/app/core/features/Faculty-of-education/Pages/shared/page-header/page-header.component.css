@@ -15,9 +15,9 @@
 
 .breadcrumb {
   background-color: var(--bg-white);
-  border-radius: var(--border-radius-md);
+  border-radius: 12px;
   padding: 1rem 1.5rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .breadcrumb-item a {
@@ -36,18 +36,18 @@
 }
 
 .nav-tabs {
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #e9ecef;
   background-color: var(--bg-white);
-  border-radius: var(--border-radius-md);
+  border-radius: 12px;
   padding: 0.5rem 1rem 0;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .nav-tabs .nav-link {
   margin-bottom: -1px;
   border: 1px solid transparent;
-  border-top-left-radius: var(--border-radius-sm);
-  border-top-right-radius: var(--border-radius-sm);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   color: var(--text-dark);
   padding: 0.75rem 1.5rem;
   text-decoration: none;
@@ -56,14 +56,14 @@
 }
 
 .nav-tabs .nav-link:hover {
-  border-color: var(--border-color);
+  border-color: #e9ecef;
   color: var(--primary-color);
 }
 
 .nav-tabs .nav-link.active {
   color: var(--primary-color);
   background-color: var(--bg-white);
-  border-color: var(--border-color);
+  border-color: #e9ecef;
   border-bottom-color: transparent;
   font-weight: 600;
 }

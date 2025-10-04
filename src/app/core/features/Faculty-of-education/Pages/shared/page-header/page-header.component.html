@@ -21,10 +21,10 @@
 
 <div *ngIf="tabs && tabs.length > 0" class="page-tabs">
   <nav class="nav nav-tabs">
-    <a *ngFor="let tab of tabs" 
-       class="nav-link" 
+    <a *ngFor="let tab of tabs"
+       class="nav-link"
        [class.active]="tab.route === activeTab"
-       [routerLink]="[tab.route]" 
+       [routerLink]="[tab.route]"
        routerLinkActive="active">
       {{ tab.label }}
     </a>

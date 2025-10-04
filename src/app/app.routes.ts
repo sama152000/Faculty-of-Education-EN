@@ -4,6 +4,8 @@ import { HomeComponent } from './core/features/Faculty-of-education/Pages/Home/H
 import { NewsEventsComponent } from './core/features/Faculty-of-education/Pages/news-events/news-events.component';
 import { StaffMembersComponent } from './core/features/Faculty-of-education/Pages/about-us/staff-members/staff-members.component';
 import { NewsEventsDetailsComponent } from './core/features/Faculty-of-education/Pages/shared/news-events-details/news-events-details.component';
+import { ProgramsListComponent } from './core/features/Faculty-of-education/Pages/programs-list/programs-list.component';
+import { ProgramDetailsComponent } from './core/features/Faculty-of-education/Pages/shared/program-details/program-details.component';
 
 export const routes: Routes = [
 
@@ -16,6 +18,8 @@ export const routes: Routes = [
       {path:'about-us/staff-members', component : StaffMembersComponent},
       { path: 'news-events', component: NewsEventsComponent },
       {path :'news-events/:id', component : NewsEventsDetailsComponent},
+        { path: 'programs', component: ProgramsListComponent },
+  { path: 'programs/:id', component: ProgramDetailsComponent },
       { path: 'units', component: HomeComponent },
       { path: 'labs/computer', component: HomeComponent },
       { path: 'labs/mental-health', component: HomeComponent },

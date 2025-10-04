@@ -5,3 +5,4 @@ export interface Program {
   icon: string;
   isNew?: boolean;
 }
+
