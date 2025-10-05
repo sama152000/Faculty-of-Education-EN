@@ -14,75 +14,77 @@
     <div class="departments-container">
       <div class="departments-slider" #slider>
         <!-- First set of cards -->
-        <div class="department-card"
-             *ngFor="let department of departments; let i = index"
-             [style.animation-delay.ms]="i * 150">
+        @for (department of departments; track department.id; let i = $index) {
+          <div class="department-card"
+               [style.animation-delay.ms]="i * 150">
 
-          <!-- Card Header -->
-          <div class="card-header">
-            <div class="department-number">
-              <span class="number-text">{{ department.order.toString().padStart(2, '0') }}</span>
+            <!-- Card Header -->
+            <div class="card-header">
+              <div class="department-number">
+                <span class="number-text">{{ department.order.toString().padStart(2, '0') }}</span>
+              </div>
+              <div class="department-icon">
+                <i [class]="department.icon"></i>
+                <div class="icon-glow"></div>
+              </div>
             </div>
-            <div class="department-icon">
-              <i [class]="department.icon"></i>
-              <div class="icon-glow"></div>
+
+            <!-- Card Content -->
+            <div class="card-content">
+              <h4 class="department-title">{{ department.name }}</h4>
+              <div class="title-underline"></div>
+              <p class="department-description">{{ department.description }}</p>
             </div>
-          </div>
 
-          <!-- Card Content -->
-          <div class="card-content">
-            <h4 class="department-title">{{ department.name }}</h4>
-            <div class="title-underline"></div>
-            <p class="department-description">{{ department.description }}</p>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="card-footer">
-            <button class="explore-btn" type="button">
+            <!-- Card Footer -->
+            <div class="card-footer">
+            <button class="explore-btn" type="button" (click)="navigateToDepartment(department.id)">
               <span class="btn-text">Explore</span>
               <i class="pi pi-arrow-right btn-icon"></i>
             </button>
-          </div>
+            </div>
 
-          <!-- Decorative Elements -->
-          <div class="card-decoration top-left"></div>
-          <div class="card-decoration bottom-right"></div>
-        </div>
+            <!-- Decorative Elements -->
+            <div class="card-decoration top-left"></div>
+            <div class="card-decoration bottom-right"></div>
+          </div>
+        }
         <!-- Duplicate set for continuous sliding -->
-        <div class="department-card"
-             *ngFor="let department of departments; let i = index"
-             [style.animation-delay.ms]="i * 150">
+        @for (department of departments; track department.id; let i = $index) {
+          <div class="department-card"
+               [style.animation-delay.ms]="i * 150">
 
-          <!-- Card Header -->
-          <div class="card-header">
-            <div class="department-number">
-              <span class="number-text">{{ department.order.toString().padStart(2, '0') }}</span>
+            <!-- Card Header -->
+            <div class="card-header">
+              <div class="department-number">
+                <span class="number-text">{{ department.order.toString().padStart(2, '0') }}</span>
+              </div>
+              <div class="department-icon">
+                <i [class]="department.icon"></i>
+                <div class="icon-glow"></div>
+              </div>
             </div>
-            <div class="department-icon">
-              <i [class]="department.icon"></i>
-              <div class="icon-glow"></div>
+
+            <!-- Card Content -->
+            <div class="card-content">
+              <h4 class="department-title">{{ department.name }}</h4>
+              <div class="title-underline"></div>
+              <p class="department-description">{{ department.description }}</p>
             </div>
-          </div>
 
-          <!-- Card Content -->
-          <div class="card-content">
-            <h4 class="department-title">{{ department.name }}</h4>
-            <div class="title-underline"></div>
-            <p class="department-description">{{ department.description }}</p>
-          </div>
+            <!-- Card Footer -->
+            <div class="card-footer">
+              <button class="explore-btn" type="button">
+                <span class="btn-text">Explore</span>
+                <i class="pi pi-arrow-right btn-icon"></i>
+              </button>
+            </div>
 
-          <!-- Card Footer -->
-          <div class="card-footer">
-            <button class="explore-btn" type="button">
-              <span class="btn-text">Explore</span>
-              <i class="pi pi-arrow-right btn-icon"></i>
-            </button>
+            <!-- Decorative Elements -->
+            <div class="card-decoration top-left"></div>
+            <div class="card-decoration bottom-right"></div>
           </div>
-
-          <!-- Decorative Elements -->
-          <div class="card-decoration top-left"></div>
-          <div class="card-decoration bottom-right"></div>
-        </div>
+        }
       </div>
     </div>
   </div>

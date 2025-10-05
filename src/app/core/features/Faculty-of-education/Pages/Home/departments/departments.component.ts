@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { DepartmentService } from '../../../Services/department.service';
 import { Department } from '../../../model/department.model';
 import { FormsModule } from '@angular/forms';
@@ -16,9 +17,13 @@ FormsModule
 export class DepartmentsComponent implements OnInit {
   departments: Department[] = [];
 
-  constructor(private departmentService: DepartmentService) {}
+  constructor(private departmentService: DepartmentService, private router: Router) {}
 
   ngOnInit(): void {
     this.departments = this.departmentService.getDepartments();
+  }
+
+  navigateToDepartment(departmentId: string): void {
+    this.router.navigate(['/department', departmentId]);
   }
 }

@@ -1,40 +1,12 @@
 <section class="news-events-section">
   <div class="container-fluid">
     <!-- Page Header -->
-    <div class="page-header text-center mb-5">
-      <h1 class="section-title">News & Events</h1>
-      <p class="section-subtitle">
-        Stay updated with the latest news and upcoming events from our faculty
-      </p>
-    </div>
+    <app-page-header
+      [title]="'News & Events'"
+      [breadcrumbs]="[{ label: 'News & Events' } ]">
+    </app-page-header>
 
-    <!-- Tabs Navigation -->
-    <div class="tabs-container mb-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="nav nav-tabs custom-tabs" role="tablist">
-            <button class="nav-link tab-btn" 
-                    [class.active]="activeTab === 'all'"
-                    (click)="onTabChange('all')">
-              <i class="pi pi-list me-2"></i>
-              {{ getTabLabel('all') }}
-            </button>
-            <button class="nav-link tab-btn" 
-                    [class.active]="activeTab === 'news'"
-                    (click)="onTabChange('news')">
-              <i class="pi pi-file-edit me-2"></i>
-              {{ getTabLabel('news') }}
-            </button>
-            <button class="nav-link tab-btn" 
-                    [class.active]="activeTab === 'event'"
-                    (click)="onTabChange('event')">
-              <i class="pi pi-calendar me-2"></i>
-              {{ getTabLabel('event') }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Tabs are provided by page-header tabs input -->
 
     <!-- Filters Section -->
     <div class="filters-section mb-5">

@@ -1,0 +1,209 @@
+<section class="contact-us-section">
+  <div class="container-fluid">
+    <!-- Page Header -->
+    <app-page-header
+      [title]="'Contact Us'"
+      [breadcrumbs]="[{ label: 'Contact', url: '/contact' }]">
+    </app-page-header>
+
+    <!-- Contact Content -->
+    <div class="contact-content">
+      <!-- Contact Information -->
+      <div class="contact-info-section">
+        <div class="info-card">
+          <div class="card-header">
+            <div class="header-icon">
+              <i class="pi pi-map-marker"></i>
+            </div>
+            <h3 class="card-title">Contact Information</h3>
+            <p class="card-subtitle">Reach out to us through any of these channels</p>
+          </div>
+
+          <div class="contact-details">
+            <!-- Address -->
+            <div class="contact-item">
+              <div class="item-icon">
+                <i class="pi pi-map-marker"></i>
+              </div>
+              <div class="item-content">
+                <h4 class="item-title">Address</h4>
+                <p class="item-text">{{ contactInfo.address }}</p>
+                <button class="copy-btn" (click)="copyToClipboard(contactInfo.address)" title="Copy Address">
+                  <i class="pi pi-copy"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-item">
+              <div class="item-icon">
+                <i class="pi pi-envelope"></i>
+              </div>
+              <div class="item-content">
+                <h4 class="item-title">Email</h4>
+                <a [href]="'mailto:' + contactInfo.email" class="item-link">{{ contactInfo.email }}</a>
+                <button class="copy-btn" (click)="copyToClipboard(contactInfo.email)" title="Copy Email">
+                  <i class="pi pi-copy"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-item">
+              <div class="item-icon">
+                <i class="pi pi-phone"></i>
+              </div>
+              <div class="item-content">
+                <h4 class="item-title">Phone</h4>
+                <a [href]="'tel:' + contactInfo.phone" class="item-link">{{ contactInfo.phone }}</a>
+                <button class="copy-btn" (click)="copyToClipboard(contactInfo.phone)" title="Copy Phone">
+                  <i class="pi pi-copy"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="social-media-section">
+            <h4 class="social-title">Follow Us</h4>
+            <div class="social-links">
+              <a *ngFor="let social of contactInfo.socialMedia" 
+                 [href]="social.url" 
+                 target="_blank" 
+                 class="social-link"
+                 [title]="social.platform">
+                <i [class]="social.icon"></i>
+                <span>{{ social.platform }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-section">
+        <div class="form-card">
+          <div class="form-header">
+            <div class="header-icon">
+              <i class="pi pi-send"></i>
+            </div>
+            <h3 class="form-title">Send us a Message</h3>
+            <p class="form-subtitle">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+          </div>
+
+          <!-- Success Message -->
+          <div class="success-message" *ngIf="submitSuccess">
+            <div class="success-icon">
+              <i class="pi pi-check-circle"></i>
+            </div>
+            <h4>Message Sent Successfully!</h4>
+            <p>Thank you for contacting us. We'll get back to you soon.</p>
+          </div>
+
+          <!-- Contact Form -->
+          <form class="contact-form" (ngSubmit)="onSubmit()" *ngIf="!submitSuccess">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name" class="form-label">
+                  <i class="pi pi-user"></i>
+                  Full Name
+                </label>
+                <input type="text" 
+                       id="name" 
+                       class="form-input" 
+                       [(ngModel)]="contactForm.name"
+                       name="name"
+                       placeholder="Enter your full name"
+                       required>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">
+                  <i class="pi pi-envelope"></i>
+                  Email Address
+                </label>
+                <input type="email" 
+                       id="email" 
+                       class="form-input" 
+                       [(ngModel)]="contactForm.email"
+                       name="email"
+                       placeholder="Enter your email address"
+                       required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject" class="form-label">
+                <i class="pi pi-tag"></i>
+                Subject
+              </label>
+              <input type="text" 
+                     id="subject" 
+                     class="form-input" 
+                     [(ngModel)]="contactForm.subject"
+                     name="subject"
+                     placeholder="Enter message subject"
+                     required>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">
+                <i class="pi pi-comment"></i>
+                Message
+              </label>
+              <textarea id="message" 
+                        class="form-textarea" 
+                        [(ngModel)]="contactForm.message"
+                        name="message"
+                        placeholder="Enter your message here..."
+                        rows="6"
+                        required></textarea>
+            </div>
+
+            <button type="submit" 
+                    class="submit-btn" 
+                    [disabled]="!isValidForm() || isSubmitting">
+              <span *ngIf="!isSubmitting">
+                <i class="pi pi-send"></i>
+                Send Message
+              </span>
+              <span *ngIf="isSubmitting">
+                <i class="pi pi-spin pi-spinner"></i>
+                Sending...
+              </span>
+              <div class="btn-glow"></div>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Important Links -->
+    <div class="important-links-section">
+      <div class="links-header">
+        <h3 class="links-title">Important Links & Services</h3>
+        <p class="links-subtitle">Quick access to essential university resources and services</p>
+      </div>
+
+      <div class="links-grid">
+        <div class="link-card" *ngFor="let link of contactInfo.importantLinks; let i = index"
+             [style.animation-delay.ms]="i * 150">
+          <div class="link-icon">
+            <i [class]="link.icon"></i>
+          </div>
+          <div class="link-content">
+            <h4 class="link-title">{{ link.title }}</h4>
+            <p class="link-description">{{ link.description }}</p>
+            <a [href]="link.url" 
+               target="_blank" 
+               class="link-button">
+              <span>Visit</span>
+              <i class="pi pi-external-link"></i>
+            </a>
+          </div>
+          <div class="link-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -5,11 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { NewsEventService } from '../../Services/news-event.service';
 import { NewsEvent, NewsEventFilter } from '../../model/news-event.model';
 import { FooterComponent } from "../shared/footer/footer.component";
+import { PageHeaderComponent } from '../shared/page-header/page-header.component';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-news-events',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, FooterComponent],
+  imports: [CommonModule, RouterModule, FormsModule, FooterComponent, PageHeaderComponent],
   templateUrl: './news-events.component.html',
   styleUrls: ['./news-events.component.css']
 })
@@ -34,11 +37,33 @@ export class NewsEventsComponent implements OnInit {
   totalItems = 0;
   totalPages = 0;
 
-  constructor(private newsEventService: NewsEventService) {}
+  private routeSubscription: Subscription | null = null;
+
+  constructor(private newsEventService: NewsEventService, private route: ActivatedRoute) {}
+
+  get headerActiveTabRoute(): string {
+    return '/news-events/' + this.activeTab;
+  }
 
   ngOnInit(): void {
     this.loadCategories();
     this.loadNewsEvents();
+    // Subscribe to route changes to keep header tabs in sync
+    this.routeSubscription = this.route.url.subscribe(urlSegments => {
+      const last = urlSegments.length ? urlSegments[urlSegments.length - 1].path : '';
+      if (last === 'news' || last === 'events') {
+        this.activeTab = last === 'news' ? 'news' : 'event';
+      } else {
+        this.activeTab = 'all';
+      }
+      // reload items for the selected tab
+      this.currentPage = 1;
+      this.loadNewsEvents();
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.routeSubscription?.unsubscribe();
   }
 
   loadCategories(): void {

@@ -65,7 +65,7 @@ export class ProgramDetailsComponent implements OnInit {
     this.programsService.getProgramById(id).subscribe(data => {
       this.program = data;
       if (this.program) {
-        this.images = this.program.images.map(img => ({ source: img, alt: this.program?.nameAr }));
+        this.images = this.program.images.map(img => ({ source: img, alt: this.program?.name }));
       }
     });
   }

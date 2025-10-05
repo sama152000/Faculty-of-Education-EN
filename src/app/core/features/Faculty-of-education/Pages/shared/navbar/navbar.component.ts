@@ -63,15 +63,26 @@ export class NavbarComponent implements OnInit {
   }
 
   handleItemClick(item: NavItem, event?: Event): void {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+    // Only intercept clicks for external links or dropdown parents.
     if (item.external && item.url) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
       window.open(item.url, '_blank');
-    } else if (item.children && item.children.length > 0) {
-      this.toggleDropdown(item.id);
+      return;
     }
+
+    if (item.children && item.children.length > 0) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      this.toggleDropdown(item.id);
+      return;
+    }
+
+    // For simple items without children, allow the routerLink/default navigation to proceed.
   }
 
   @HostListener('document:click', ['$event'])

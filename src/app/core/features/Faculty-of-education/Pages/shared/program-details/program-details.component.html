@@ -1,9 +1,9 @@
 <div class="program-details-container" *ngIf="program">
   <app-page-header
-    [title]="program.nameAr"
+    [title]="program.name"
     [breadcrumbs]="[
-      {label: 'البرامج الأكاديمية', url: '/programs'},
-      {label: program.nameAr}
+      {label: 'Academic Programs', url: '/programs'},
+      {label: program.name}
     ]">
   </app-page-header>
 
@@ -11,7 +11,7 @@
     <div class="main-content">
       <div class="image-section">
         <div class="program-image-wrapper">
-          <img [src]="program.images[0]" [alt]="program.nameAr" class="program-main-image" />
+          <img [src]="program.images[0]" [alt]="program.name" class="program-main-image" />
           <div class="image-overlay"></div>
           <div class="image-badge">
             <p-tag [value]="program.category" severity="info" styleClass="custom-tag"></p-tag>
@@ -22,23 +22,22 @@
       <p-card class="details-card">
         <div class="program-header">
           <div class="title-section">
-            <h1 class="program-title">{{ program.nameAr }}</h1>
-            <h2 class="program-title-en">{{ program.nameEn }}</h2>
+            <h1 class="program-title">{{ program.name }}</h1>
           </div>
 
           <div class="program-meta-info">
             <div class="meta-badge">
               <i class="pi pi-clock"></i>
               <div>
-                <span class="meta-label">المدة</span>
+                <span class="meta-label">Duration</span>
                 <span class="meta-value">{{ program.duration }}</span>
               </div>
             </div>
             <div class="meta-badge">
               <i class="pi pi-graduation-cap"></i>
               <div>
-                <span class="meta-label">الدرجة العلمية</span>
-                <span class="meta-value">{{ program.degreeAr }}</span>
+                <span class="meta-label">Academic Degree</span>
+                <span class="meta-value">{{ program.degree }}</span>
               </div>
             </div>
           </div>
@@ -49,29 +48,29 @@
         <div class="description-section">
           <h3 class="section-heading">
             <i class="pi pi-info-circle"></i>
-            نبذة عن البرنامج
+            Program Overview
           </h3>
-          <p class="short-description">{{ program.shortDescriptionAr }}</p>
+          <p class="short-description">{{ program.shortDescription }}</p>
 
           <h3 class="section-heading">
             <i class="pi pi-book"></i>
-            وصف البرنامج التفصيلي
+            Detailed Program Description
           </h3>
-          <p class="full-description">{{ program.fullDescriptionAr }}</p>
+          <p class="full-description">{{ program.fullDescription }}</p>
         </div>
 
         <p-divider></p-divider>
 
         <div class="navigation-buttons">
           <p-button
-            label="البرنامج السابق"
+            label="Previous Program"
             icon="pi pi-arrow-right"
             (onClick)="goToPreviousProgram()"
             styleClass="p-button-outlined"
             [style]="{'flex': '1'}">
           </p-button>
           <p-button
-            label="البرنامج التالي"
+            label="Next Program"
             icon="pi pi-arrow-left"
             iconPos="right"
             (onClick)="goToNextProgram()"
@@ -86,7 +85,7 @@
       <div class="sidebar-card">
         <h3 class="sidebar-title">
           <i class="pi pi-list"></i>
-          جميع البرامج
+          All Programs
         </h3>
         <p-divider></p-divider>
         <ul class="programs-navigation-list">
@@ -95,7 +94,7 @@
               [class.active]="prog.id === program.id">
             <a [routerLink]="['/programs', prog.id]">
               <i class="pi pi-angle-left"></i>
-              <span>{{ prog.nameAr }}</span>
+              <span>{{ prog.name }}</span>
             </a>
           </li>
         </ul>
@@ -104,28 +103,28 @@
       <div class="sidebar-card quick-info">
         <h3 class="sidebar-title">
           <i class="pi pi-info-circle"></i>
-          معلومات سريعة
+          Quick Info
         </h3>
         <p-divider></p-divider>
         <div class="quick-info-list">
           <div class="info-item">
             <i class="pi pi-calendar"></i>
             <div>
-              <span class="info-label">مدة الدراسة</span>
+              <span class="info-label">Study Duration</span>
               <span class="info-value">{{ program.duration }}</span>
             </div>
           </div>
           <div class="info-item">
             <i class="pi pi-award"></i>
             <div>
-              <span class="info-label">الدرجة</span>
-              <span class="info-value">{{ program.degreeAr }}</span>
+              <span class="info-label">Degree</span>
+              <span class="info-value">{{ program.degree }}</span>
             </div>
           </div>
           <div class="info-item">
             <i class="pi pi-tag"></i>
             <div>
-              <span class="info-label">التصنيف</span>
+              <span class="info-label">Category</span>
               <span class="info-value">{{ program.category }}</span>
             </div>
           </div>
@@ -137,5 +136,5 @@
 
 <div class="loading-container" *ngIf="!program">
   <i class="pi pi-spin pi-spinner loading-icon"></i>
-  <p>جاري تحميل البرنامج...</p>
+  <p>Loading program...</p>
 </div>

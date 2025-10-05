@@ -113,11 +113,12 @@ export class NavigationService {
     {
       id: 'academic-programs',
       label: 'Academic Programs',
+      route: '/programs',
       children: [
         {
           id: 'arabic-program',
           label: 'Arabic Language & Literature Teacher Preparation Program',
-          route: '/programs/academic/arabic'
+          route: '/programs/arabic/id'
         },
         {
           id: 'english-program',
@@ -187,34 +188,35 @@ export class NavigationService {
         }
       ]
     },
-    {
-      id: 'faculty-departments',
-      label: 'Faculty Departments',
-      children: [
+      {
+  id: 'faculty-departments',
+  label: 'Faculty Departments',
+  route: '/department',
+  children: [
         {
           id: 'curricula-teaching',
           label: 'Curricula & Teaching Methods',
-          route: '/departments/curricula-teaching'
+          route: '/department/curricula-teaching'
         },
         {
           id: 'foundations-education',
           label: 'Foundations of Education',
-          route: '/departments/foundations'
+          route: '/department/foundations-education'
         },
         {
           id: 'mental-health',
           label: 'Mental Health',
-          route: '/departments/mental-health'
+          route: '/department/mental-health'
         },
         {
           id: 'psychology',
           label: 'Psychology',
-          route: '/departments/psychology'
+          route: '/department/psychology'
         },
         {
           id: 'comparative-education',
           label: 'Comparative Education & Educational Administration',
-          route: '/departments/comparative-education'
+          route: '/department/comparative-education'
         }
       ]
     },
@@ -330,7 +332,7 @@ export class NavigationService {
       {
         id: 'faculty-departments-footer',
         label: 'Faculty Departments',
-        route: '/departments'
+        route: '/department'
       },
       {
         id: 'faculty-administrations-footer',

@@ -1,7 +1,7 @@
 <div class="programs-container">
   <app-page-header
-    [title]="'البرامج الأكاديمية'"
-    [breadcrumbs]="[{label: 'البرامج الأكاديمية'}]">
+    [title]="'Academic Programs'"
+    [breadcrumbs]="[{label: 'Academic Programs'}]">
   </app-page-header>
 
   <div class="content-wrapper">
@@ -14,80 +14,83 @@
             pInputText
             [(ngModel)]="searchTerm"
             (input)="onSearch()"
-            placeholder="ابحث عن البرنامج..."
+            placeholder="Search programs..."
             class="search-input" />
         </span>
       </div>
 
       <div class="programs-grid">
-        <p-card
-          *ngFor="let program of filteredPrograms"
-          class="program-card"
-          [styleClass]="'custom-card'">
-          <ng-template pTemplate="header">
-            <div class="card-image-wrapper">
-              <img [src]="program.images[0]" [alt]="program.nameAr" class="card-image" />
-              <div class="card-overlay"></div>
-            </div>
-          </ng-template>
-
-          <div class="card-content">
-            <h3 class="program-title">{{ program.nameAr }}</h3>
-            <h4 class="program-title-en">{{ program.nameEn }}</h4>
-
-            <p-divider></p-divider>
-
-            <p class="program-description">{{ program.shortDescriptionAr }}</p>
-
-            <div class="program-meta">
-              <div class="meta-item">
-                <i class="pi pi-clock"></i>
-                <span>{{ program.duration }}</span>
+        @for (program of filteredPrograms; track program.id) {
+          <p-card
+            class="program-card"
+            [styleClass]="'custom-card'">
+            <ng-template pTemplate="header">
+              <div class="card-image-wrapper">
+                <img [src]="program.images[0]" [alt]="program.name" class="card-image" />
+                <div class="card-overlay"></div>
               </div>
-              <div class="meta-item">
-                <i class="pi pi-graduation-cap"></i>
-                <span>{{ program.degreeAr }}</span>
+            </ng-template>
+
+            <div class="card-content">
+              <h3 class="program-title">{{ program.name }}</h3>
+
+              <p-divider></p-divider>
+
+              <p class="program-description">{{ program.shortDescription }}</p>
+
+              <div class="program-meta">
+                <div class="meta-item">
+                  <i class="pi pi-clock"></i>
+                  <span>{{ program.duration }}</span>
+                </div>
+                <div class="meta-item">
+                  <i class="pi pi-graduation-cap"></i>
+                  <span>{{ program.degree }}</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <ng-template pTemplate="footer">
-            <div class="card-footer">
-              <p-button
-                label="عرض التفاصيل"
-                icon="pi pi-arrow-left"
-                [routerLink]="['/programs', program.id]"
-                styleClass="p-button-primary"
-                [style]="{'width': '100%'}">
-              </p-button>
-            </div>
-          </ng-template>
-        </p-card>
+            <ng-template pTemplate="footer">
+              <div class="card-footer">
+                <p-button
+                  label="View Details"
+                  icon="pi pi-arrow-left"
+                  [routerLink]="['/programs', program.id]"
+                  styleClass="p-button-primary"
+                  [style]="{'width': '100%'}">
+                </p-button>
+              </div>
+            </ng-template>
+          </p-card>
+        }
       </div>
 
-      <div *ngIf="filteredPrograms.length === 0" class="no-results">
-        <i class="pi pi-search"></i>
-        <h3>لا توجد نتائج</h3>
-        <p>لم يتم العثور على برامج تطابق بحثك</p>
-      </div>
+      @if (filteredPrograms.length === 0) {
+        <div class="no-results">
+          <i class="pi pi-search"></i>
+          <h3>No results</h3>
+          <p>No programs match your search</p>
+        </div>
+      }
     </div>
 
     <aside class="sidebar">
       <div class="sidebar-card">
         <h3 class="sidebar-title">
           <i class="pi pi-list"></i>
-          جميع البرامج
+          All Programs
         </h3>
         <p-divider></p-divider>
         <ul class="programs-list">
-          <li *ngFor="let program of programs"
-              class="program-item"
-              [class.active]="selectedProgram?.id === program.id">
-            <a [routerLink]="['/programs', program.id]" (click)="selectProgram(program)">
-              <i class="pi pi-angle-left"></i>
-              <span>{{ program.nameAr }}</span>
-            </a>
-          </li>
+          @for (program of programs; track program.id) {
+            <li class="program-item"
+                [class.active]="selectedProgram?.id === program.id">
+              <a [routerLink]="['/programs', program.id]" (click)="selectProgram(program)">
+                <i class="pi pi-angle-left"></i>
+                <span>{{ program.name }}</span>
+              </a>
+            </li>
+          }
         </ul>
       </div>
     </aside>

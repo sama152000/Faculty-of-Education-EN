@@ -1,0 +1,132 @@
+<section class="news-events-section">
+  <div class="container-fluid">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="header-content">
+        <span class="section-badge">
+          <i class="pi pi-megaphone"></i>
+          Latest Updates
+        </span>
+        <h2 class="section-title">News & Events</h2>
+        <p class="section-subtitle">
+          Stay informed with the latest news, announcements, and upcoming events from our faculty
+        </p>
+        
+      </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+      <div class="tab-container">
+        <button class="tab-button" 
+                [class.active]="activeTab === 'all'"
+                (click)="switchTab('all')">
+          <i class="pi pi-list"></i>
+          <span>All Updates</span>
+          <div class="tab-indicator"></div>
+        </button>
+        <button class="tab-button" 
+                [class.active]="activeTab === 'news'"
+                (click)="switchTab('news')">
+          <i class="pi pi-info-circle"></i>
+          <span>News</span>
+          <div class="tab-indicator"></div>
+        </button>
+        <button class="tab-button" 
+                [class.active]="activeTab === 'event'"
+                (click)="switchTab('event')">
+          <i class="pi pi-calendar"></i>
+          <span>Events</span>
+          <div class="tab-indicator"></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-container" *ngIf="loading">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading updates...</p>
+      </div>
+    </div>
+
+    <!-- News & Events Grid -->
+    <div class="news-events-grid" *ngIf="!loading">
+      <div class="news-event-card" 
+           *ngFor="let item of filteredItems; let i = index"
+           [style.animation-delay.ms]="i * 150">
+        
+        <!-- Card Header -->
+        <div class="card-header">
+          <div class="card-image">
+            <img [src]="item.images[0]" [alt]="item.title" class="item-image">
+            <div class="image-overlay">
+              <div class="type-badge" [class]="item.type + '-badge'">
+                <i [class]="getTypeIcon(item.type)"></i>
+                <span>{{ getTypeLabel(item.type) }}</span>
+              </div>
+              <div class="featured-badge" *ngIf="item.featured">
+                <i class="pi pi-star"></i>
+                <span>Featured</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="card-content">
+          <div class="content-header">
+            <div class="date-info">
+              <i class="pi pi-calendar"></i>
+              <span>{{ formatDate(item.date) }}</span>
+            </div>
+            <div class="category-tag" *ngIf="item.category">
+              <span>{{ item.category }}</span>
+            </div>
+          </div>
+
+          <h4 class="item-title">{{ item.title }}</h4>
+          <p class="item-excerpt">{{ truncateText(item.excerpt, 120) }}</p>
+
+          <div class="card-footer">
+            <button class="read-more-btn">
+              <span>Read More</span>
+              <i class="pi pi-arrow-right"></i>
+            </button>
+            <div class="share-actions">
+              <button class="share-btn" title="Share">
+                <i class="pi pi-share-alt"></i>
+              </button>
+              <button class="bookmark-btn" title="Bookmark">
+                <i class="pi pi-bookmark"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Decorations -->
+        <div class="card-glow"></div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="!loading && filteredItems.length === 0">
+      <div class="empty-icon">
+        <i class="pi pi-inbox"></i>
+      </div>
+      <h3 class="empty-title">No {{ activeTab === 'all' ? 'updates' : activeTab }} found</h3>
+      <p class="empty-description">
+        Check back later for new {{ activeTab === 'all' ? 'news and events' : activeTab }}.
+      </p>
+    </div>
+
+    <!-- View All Button -->
+    <div class="view-all-section" *ngIf="!loading && filteredItems.length > 0">
+      <button class="view-all-btn">
+        <span>View All {{ getTypeLabel(activeTab) }}</span>
+        <i class="pi pi-arrow-right"></i>
+        <div class="btn-glow"></div>
+      </button>
+    </div>
+  </div>
+</section>
