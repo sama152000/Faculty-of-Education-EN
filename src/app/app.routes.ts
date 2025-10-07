@@ -10,8 +10,7 @@ import { ContactUsComponent } from './core/features/Faculty-of-education/Pages/c
 import { DeanMessageComponent } from './core/features/Faculty-of-education/Pages/shared/dean-message/dean-message.component';
 import { VisionMissionComponent } from './core/features/Faculty-of-education/Pages/about-us/vision-mission/vision-mission.component';
 import { SectorsComponent } from './core/features/Faculty-of-education/Pages/sectors/sectors.component';
-import { DepartmentsComponent } from './core/features/Faculty-of-education/Pages/Home/departments/departments.component';
-
+import { DepartmentDetailsComponent } from './core/features/Faculty-of-education/Pages/shared/department-details/department-details.component';
 export const routes: Routes = [
 
  {
@@ -53,9 +52,15 @@ export const routes: Routes = [
     { path: 'administrations/youth-welfare', component: HomeComponent },
     { path: 'administrations/labs', component: HomeComponent },
     { path: 'administrations/stores', component: HomeComponent },
-  // Departments list page
-  { path: 'department', component: DepartmentsComponent },
-  { path: 'management/dean', component: HomeComponent },
+   // Departments routes
+ { path: 'department-details', component: HomeComponent },
+      { path: 'department-details/:id', component: DepartmentDetailsComponent },
+
+
+
+  { path: 'management/vice-dean-community/:id', component: SectorsComponent },
+
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'management/vice-dean-education', component: SectorsComponent },
   { path: 'management/vice-dean-education/:id', component: SectorsComponent },
   { path: 'management/vice-dean-postgraduate', component: SectorsComponent },

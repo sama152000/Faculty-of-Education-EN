@@ -12,12 +12,11 @@
 
     <!-- Departments Slider -->
     <div class="departments-container">
-      <div class="departments-slider" #slider>
+      <div class="departments-slider">
         <!-- First set of cards -->
         @for (department of departments; track department.id; let i = $index) {
           <div class="department-card"
                [style.animation-delay.ms]="i * 150">
-
             <!-- Card Header -->
             <div class="card-header">
               <div class="department-number">
@@ -38,10 +37,10 @@
 
             <!-- Card Footer -->
             <div class="card-footer">
-            <button class="explore-btn" type="button" (click)="navigateToDepartment(department.id)">
-              <span class="btn-text">Explore</span>
-              <i class="pi pi-arrow-right btn-icon"></i>
-            </button>
+              <button class="explore-btn" type="button" (click)="navigateToDepartment(department)">
+                <span class="btn-text">Explore</span>
+                <i class="pi pi-arrow-right btn-icon"></i>
+              </button>
             </div>
 
             <!-- Decorative Elements -->
@@ -53,7 +52,6 @@
         @for (department of departments; track department.id; let i = $index) {
           <div class="department-card"
                [style.animation-delay.ms]="i * 150">
-
             <!-- Card Header -->
             <div class="card-header">
               <div class="department-number">
@@ -74,7 +72,7 @@
 
             <!-- Card Footer -->
             <div class="card-footer">
-              <button class="explore-btn" type="button">
+              <button class="explore-btn" type="button" (click)="navigateToDepartment(department)">
                 <span class="btn-text">Explore</span>
                 <i class="pi pi-arrow-right btn-icon"></i>
               </button>

@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Font Faces */
+
+
 /* Bootstrap CSS */
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -195,7 +198,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'IBM Plex Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-light);
   line-height: 1.6;
     color: var(--text-dark);
@@ -224,10 +227,6 @@ a {
   transition: all 0.3s ease;
 }
 
-a:hover {
-  color: var(--primary-hover);
-  text-decoration: none;
-}
 
 .container-fluid {
   padding-left: var(--padding-lg);
@@ -257,9 +256,6 @@ html {
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-hover);
-}
 
 /* Animation Classes */
 @keyframes fadeInUp {

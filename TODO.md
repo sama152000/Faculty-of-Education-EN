@@ -1,0 +1,1 @@
+- [ ] Fix routing path in department-page.component.ts: change '/departments' to '/department' in navigation calls and breadcrumbs

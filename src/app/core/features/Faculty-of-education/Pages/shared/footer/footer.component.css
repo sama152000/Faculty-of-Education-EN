@@ -56,7 +56,7 @@
 .footer-logo .logo-img {
   width: 100px;
   height: 100px;
-  object-fit: contain;
+  object-fit:cover;
   border-radius: 8px;
   padding: 6px;
 }
@@ -66,23 +66,24 @@
 }
 
 .faculty-title {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: white;
   margin: 0 0 0.25rem 0;
   line-height: 1.2;
 }
 
 .university-subtitle {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.9);
   margin: 0;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .footer-description {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 400;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -124,7 +125,7 @@
 .section-title {
   color: var(--accent-color)!important;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 1.5rem;
   position: relative;
   padding-bottom: 0.5rem;
@@ -155,9 +156,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight:400;
   transition: all 0.3s ease;
   padding: 0.25rem 0;
 }
@@ -169,7 +171,7 @@
 }
 
 .link-icon {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--primary-color);
   transition: transform 0.3s ease;
 }
@@ -217,14 +219,15 @@
 
 .contact-label {
   color: var(--accent-color);
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   margin: 0 0 0.5rem 0;
 }
 
 .contact-text {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  font-weight: 400;
   line-height: 1.5;
   margin: 0;
 }
@@ -232,7 +235,8 @@
 .contact-link {
   color: var(--primary-color);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 1rem;
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
@@ -255,9 +259,9 @@
 }
 
 .email-role {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 500;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
 }
 
 /* ========================================
@@ -279,8 +283,9 @@
 }
 
 .copyright-text {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 600;
   margin: 0;
 }
 
@@ -291,9 +296,10 @@
 }
 
 .legal-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 1rem;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
 
@@ -303,8 +309,9 @@
 }
 
 .divider {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 /* ========================================
@@ -314,9 +321,17 @@
   .footer-grid {
     gap: 2.5rem;
   }
-  
+
   .faculty-title {
+    font-size: 1.3rem;
+  }
+
+  .section-title {
     font-size: 1.2rem;
+  }
+
+  .footer-link {
+    font-size: 1rem;
   }
 }
 
@@ -389,11 +404,11 @@
   }
 
   .faculty-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .university-subtitle {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
 
   .social-link {
@@ -403,15 +418,16 @@
   }
 
   .section-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .footer-link {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
 
-  .contact-details {
-    font-size: 0.8rem;
+  .contact-text,
+  .contact-link {
+    font-size: 0.9rem;
   }
 
   .footer-legal {

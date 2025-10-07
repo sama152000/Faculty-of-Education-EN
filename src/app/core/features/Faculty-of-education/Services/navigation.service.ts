@@ -12,16 +12,11 @@ export class NavigationService {
       route: '/home'
     },
     {
-      id: 'contact',
-      label: 'Contact Us',
-      route: '/contact'
-    },
-     {
       id: 'About Us',
       label: 'About Us',
       children: [
         {
-          id: 'dean word',
+          id: 'dean-word',
           label: 'Dean Word',
           route: '/about-us/dean-word'
         },
@@ -31,10 +26,11 @@ export class NavigationService {
           route: '/about-us/vision-mission'
         },
         {
-          id: 'Staff members',
+          id: 'staff-members',
           label: 'Staff Members',
           route: '/about-us/staff-members'
-        }]
+        }
+      ]
     },
     {
       id: 'news-events',
@@ -79,76 +75,75 @@ export class NavigationService {
       ]
     },
     {
-      id: 'faculty-journal',
-      label: 'Faculty Journal',
-      external: true,
-      url: 'https://jedul.journals.ekb.eg/'
-    },
-    {
-      id: 'new-programs',
-      label: 'New Programs',
+      id: 'programs',
+      label: 'Programs',
       children: [
         {
-          id: 'math-english',
-          label: 'Mathematics Teacher Preparation Program (English)',
-          route: '/programs/new/mathematics-english'
+          id: 'new-programs',
+          label: 'New Programs',
+          children: [
+            {
+              id: 'math-english',
+              label: 'Mathematics Teacher Preparation',
+              route: '/programs/new/mathematics-english'
+            },
+            {
+              id: 'biology-english',
+              label: 'Biological Sciences Teacher Preparation',
+              route: '/programs/new/biology-english'
+            },
+            {
+              id: 'physics-english',
+              label: 'Physics Teacher Preparation',
+              route: '/programs/new/physics-english'
+            },
+            {
+              id: 'chemistry-english',
+              label: 'Chemistry Teacher Preparation',
+              route: '/programs/new/chemistry-english'
+            }
+          ]
         },
         {
-          id: 'biology-english',
-          label: 'Biological Sciences Teacher Preparation Program (English)',
-          route: '/programs/new/biology-english'
-        },
-        {
-          id: 'physics-english',
-          label: 'Physics Teacher Preparation Program (English)',
-          route: '/programs/new/physics-english'
-        },
-        {
-          id: 'chemistry-english',
-          label: 'Chemistry Teacher Preparation Program (English)',
-          route: '/programs/new/chemistry-english'
-        }
-      ]
-    },
-    {
-      id: 'academic-programs',
-      label: 'Academic Programs',
-      route: '/programs',
-      children: [
-        {
-          id: 'arabic-program',
-          label: 'Arabic Language & Literature Teacher Preparation Program',
-          route: '/programs/arabic/id'
-        },
-        {
-          id: 'english-program',
-          label: 'English Language & Literature Teacher Preparation Program',
-          route: '/programs/academic/english'
-        },
-        {
-          id: 'french-program',
-          label: 'French Language & Literature Teacher Preparation Program',
-          route: '/programs/academic/french'
-        },
-        {
-          id: 'german-program',
-          label: 'German Language & Literature Teacher Preparation Program',
-          route: '/programs/academic/german'
-        },
-        {
-          id: 'mathematics-program',
-          label: 'Mathematics Teacher Preparation Program',
-          route: '/programs/academic/mathematics'
-        },
-        {
-          id: 'chemistry-program',
-          label: 'Chemistry Teacher Preparation Program',
-          route: '/programs/academic/chemistry'
-        },
-        {
-          id: 'biology-program',
-          label: 'Biological Sciences Teacher Preparation Program',
-          route: '/programs/academic/biology'
+          id: 'academic-programs',
+          label: 'Academic Programs',
+          children: [
+            {
+              id: 'arabic-program',
+              label: 'Arabic Language & Literature Teacher Preparation',
+              route: '/programs/academic/arabic'
+            },
+            {
+              id: 'english-program',
+              label: 'English Language & Literature Teacher Preparation',
+              route: '/programs/academic/english'
+            },
+            {
+              id: 'french-program',
+              label: 'French Language & Literature Teacher Preparation',
+              route: '/programs/academic/french'
+            },
+            {
+              id: 'german-program',
+              label: 'German Language & Literature Teacher Preparation',
+              route: '/programs/academic/german'
+            },
+            {
+              id: 'mathematics-program',
+              label: 'Mathematics Teacher Preparation',
+              route: '/programs/academic/mathematics'
+            },
+            {
+              id: 'chemistry-program',
+              label: 'Chemistry Teacher Preparation',
+              route: '/programs/academic/chemistry'
+            },
+            {
+              id: 'biology-program',
+              label: 'Biological Sciences Teacher Preparation',
+              route: '/programs/academic/biology'
+            }
+          ]
         }
       ]
     },
@@ -188,63 +183,63 @@ export class NavigationService {
         }
       ]
     },
-      {
-  id: 'faculty-departments',
-  label: 'Faculty Departments',
-  route: '/department',
-  children: [
+    {
+      id: 'faculty-departments',
+      label: 'Faculty Departments',
+      route: '',
+      children: [
         {
           id: 'curricula-teaching',
           label: 'Curricula & Teaching Methods',
-          route: '/department/curricula-teaching'
+          route: '/department-details/curricula-teaching'
         },
         {
           id: 'foundations-education',
           label: 'Foundations of Education',
-          route: '/department/foundations-education'
+          route: '/department-details/foundations-education'
         },
         {
           id: 'mental-health',
           label: 'Mental Health',
-          route: '/department/mental-health'
+          route: '/department-details/mental-health'
         },
         {
           id: 'psychology',
           label: 'Psychology',
-          route: '/department/psychology'
+          route: '/department-details/psychology'
         },
         {
           id: 'comparative-education',
           label: 'Comparative Education & Educational Administration',
-          route: '/department/comparative-education'
+          route: '/department-details/comparative-education'
         }
       ]
     },
     {
-      id: 'top-management',
-      label: 'Top Management',
+      id: 'Sectors',
+      label: 'Sectors',
       children: [
         {
-          id: 'dean',
-          label: 'Dean of the Faculty',
-          route: '/management/dean'
-        },
-        {
           id: 'vice-dean-education',
-          label: 'Vice Dean for Education & Student Affairs',
+          label: 'Education & Student Affairs',
           route: '/management/vice-dean-education'
         },
         {
           id: 'vice-dean-postgraduate',
-          label: 'Vice Dean for Postgraduate Studies & Research',
+          label: 'Postgraduate Studies & Research',
           route: '/management/vice-dean-postgraduate'
         },
         {
           id: 'vice-dean-community',
-          label: 'Vice Dean for Community Service & Environmental Development',
+          label: 'Community Service & Environmental Development',
           route: '/management/vice-dean-community'
         }
       ]
+    },
+    {
+      id: 'contact',
+      label: 'Contact Us',
+      route: '/contact'
     }
   ];
 
@@ -332,7 +327,7 @@ export class NavigationService {
       {
         id: 'faculty-departments-footer',
         label: 'Faculty Departments',
-        route: '/department'
+        route: '/department-details'
       },
       {
         id: 'faculty-administrations-footer',
@@ -340,14 +335,9 @@ export class NavigationService {
         route: '/administrations'
       },
       {
-        id: 'academic-programs-footer',
-        label: 'Academic Programs',
-        route: '/programs/academic'
-      },
-      {
-        id: 'new-programs-footer',
-        label: 'New Programs',
-        route: '/programs/new'
+        id: 'programs-footer',
+        label: 'Programs',
+        route: '/programs'
       },
       {
         id: 'units-labs-footer',

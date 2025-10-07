@@ -122,7 +122,7 @@
 
     <!-- View All Button -->
     <div class="view-all-section" *ngIf="!loading && filteredItems.length > 0">
-      <button class="view-all-btn">
+      <button class="view-all-btn" (click)="navigateToNewsEvents()">
         <span>View All {{ getTypeLabel(activeTab) }}</span>
         <i class="pi pi-arrow-right"></i>
         <div class="btn-glow"></div>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Department } from '../model/department.model';
+import { Observable, of } from 'rxjs';
+import { Department, DepartmentNavigation } from '../model/department.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,8 @@ export class DepartmentService {
         'Professional development workshops',
         'Educational material development',
         'Teaching practice supervision'
-      ]
+      ],
+      route: 'department-details/curricula-teaching'
     },
     {
       id: 'foundations-education',
@@ -78,7 +80,8 @@ export class DepartmentService {
         'Research methodology training',
         'Ethics in education workshops',
         'Educational reform guidance'
-      ]
+      ],
+      route: 'department-details/foundations-education'
     },
     {
       id: 'mental-health',
@@ -115,7 +118,8 @@ export class DepartmentService {
         'Professional training workshops',
         'Research and evaluation services',
         'Community outreach programs'
-      ]
+      ],
+      route: 'department-details/mental-health'
     },
     {
       id: 'psychology',
@@ -152,7 +156,8 @@ export class DepartmentService {
         'Professional development training',
         'Psychological research supervision',
         'Educational program evaluation'
-      ]
+      ],
+      route: 'department-details/psychology'
     },
     {
       id: 'comparative-education',
@@ -189,35 +194,56 @@ export class DepartmentService {
         'Policy development support',
         'International education partnerships',
         'Research and comparative studies'
-      ]
+      ],
+      route: 'department-details/comparative-education'
     }
   ];
 
-  getDepartments(): Department[] {
-    return this.departments.sort((a, b) => a.order - b.order);
+  getAllDepartments(): Observable<Department[]> {
+    return of(this.departments.sort((a, b) => a.order - b.order));
   }
 
-  getDepartmentById(id: string): Department | undefined {
-    return this.departments.find(dept => dept.id === id);
+  getDepartmentByRoute(route: string): Observable<Department | null> {
+    const department = this.departments.find(d => d.route === route);
+    return of(department || null);
   }
 
-  getDepartmentsByIds(ids: string[]): Department[] {
-    return this.departments.filter(dept => ids.includes(dept.id));
+  getDepartmentById(id: string): Observable<Department | null> {
+    const department = this.departments.find(d => d.id === id);
+    return of(department || null);
   }
 
-  getDepartmentNavigation(currentId: string) {
-    const departments = this.getDepartments();
-    const currentIndex = departments.findIndex(dept => dept.id === currentId);
-    
-    if (currentIndex === -1) {
-      return null;
+  getDepartmentNavigation(currentDepartmentId: string): Observable<DepartmentNavigation> {
+    const sortedDepartments = this.departments.sort((a, b) => a.order - b.order);
+    const currentIndex = sortedDepartments.findIndex(d => d.id === currentDepartmentId);
+
+    const navigation: DepartmentNavigation = {
+      previous: currentIndex > 0 ? sortedDepartments[currentIndex - 1] : null,
+      next: currentIndex < sortedDepartments.length - 1 ? sortedDepartments[currentIndex + 1] : null
+    };
+
+    return of(navigation);
+  }
+
+  getNextDepartment(currentDepartmentId: string): Observable<Department | null> {
+    const sortedDepartments = this.departments.sort((a, b) => a.order - b.order);
+    const currentIndex = sortedDepartments.findIndex(d => d.id === currentDepartmentId);
+
+    if (currentIndex !== -1 && currentIndex < sortedDepartments.length - 1) {
+      return of(sortedDepartments[currentIndex + 1]);
     }
 
-    return {
-      currentIndex,
-      totalDepartments: departments.length,
-      previousDepartment: currentIndex > 0 ? departments[currentIndex - 1] : undefined,
-      nextDepartment: currentIndex < departments.length - 1 ? departments[currentIndex + 1] : undefined
-    };
+    return of(null);
+  }
+
+  getPreviousDepartment(currentDepartmentId: string): Observable<Department | null> {
+    const sortedDepartments = this.departments.sort((a, b) => a.order - b.order);
+    const currentIndex = sortedDepartments.findIndex(d => d.id === currentDepartmentId);
+
+    if (currentIndex > 0) {
+      return of(sortedDepartments[currentIndex - 1]);
+    }
+
+    return of(null);
   }
 }

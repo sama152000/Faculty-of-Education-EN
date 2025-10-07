@@ -3,7 +3,7 @@
   <div class="footer-main">
     <div class="container-fluid">
       <div class="footer-grid">
-        
+
         <!-- University Branding -->
         <div class="footer-section brand-section">
           <div class="footer-logo">
@@ -17,10 +17,10 @@
             Dedicated to excellence in educational research, teacher preparation, and community engagement since our establishment.
           </p>
           <div class="social-links">
-            <a *ngFor="let social of socialLinks" 
-               [href]="social.url" 
-               target="_blank" 
-               class="social-link" 
+            <a *ngFor="let social of socialLinks"
+               [href]="social.url"
+               target="_blank"
+               class="social-link"
                [title]="social.platform"
                rel="noopener noreferrer">
               <i [class]="social.icon"></i>
@@ -33,8 +33,8 @@
           <h4 class="section-title">Quick Access</h4>
           <ul class="footer-links">
             <li *ngFor="let link of quickLinks">
-              <a [href]="link.url" 
-                 [target]="link.external ? '_blank' : '_self'" 
+              <a [href]="link.url"
+                 [target]="link.external ? '_blank' : '_self'"
                  class="footer-link"
                  [rel]="link.external ? 'noopener noreferrer' : ''">
                 <i class="pi pi-angle-right link-icon"></i>
@@ -60,7 +60,7 @@
         <!-- Contact Information -->
         <div class="footer-section contact-section">
           <h4 class="section-title">Contact Information</h4>
-          
+
           <div class="contact-info" *ngIf="contactInfo">
             <!-- Address -->
             <div class="contact-item">
