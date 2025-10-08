@@ -527,3 +527,18 @@
     transform: none;
   }
 }
+
+/* أضف ده */
+.new-badge {
+  font-size: 1.2rem;
+  color: #ffd700;  /* أصفر للجديد */
+  margin-left: 0.5rem;
+}
+
+::ng-deep .new-tag {
+  background: #ffd700 !important;
+  color: #333 !important;
+  margin-left: 1rem;
+}
+
+/* الباقي نفس الـ CSS الأصلي */

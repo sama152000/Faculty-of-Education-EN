@@ -315,3 +315,31 @@
 ::ng-deep .p-divider {
   margin: 1rem 0;
 }
+/* إضافة ستايل للبادج */
+.new-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #28a745; /* أخضر من PrimeNG severity="success" */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.new-text {
+  font-size: 0.9rem;
+  color: #28a745;
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+.sidebar-new-badge {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+}
+
+/* باقي الستايل زي ما هو في الملف الأصلي. لو محتاجة أضيف الستايل الكامل، قوليلي! */

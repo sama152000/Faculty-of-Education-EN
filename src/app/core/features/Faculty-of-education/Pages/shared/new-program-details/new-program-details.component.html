@@ -1,17 +1,21 @@
-
-<div class="program-details-container col-md-12" *ngIf="program">
+<div class="program-details-container" *ngIf="program">
   
-  <div class="content-wrapper col-md-12">
-    <div class="main-content col-md-12 ">
-      
-      <app-page-header *ngIf="program" [title]="program.name" [breadcrumbs]="[{ label: 'Programs', url: '/programs' }]"></app-page-header>
-      
+  <div class="content-wrapper">
+    <div class="main-content">
+      <app-page-header
+        [title]="program.name"
+        [breadcrumbs]="[
+          {label: 'New Programs', url: '/new-programs'},
+          {label: program.name}
+        ]">
+      </app-page-header>
       <div class="image-section">
         <div class="program-image-wrapper">
           <img [src]="program.images[0]" [alt]="program.name" class="program-main-image" />
           <div class="image-overlay"></div>
           <div class="image-badge">
             <p-tag [value]="program.category" severity="info" styleClass="custom-tag"></p-tag>
+            <p-tag value="New" severity="success" styleClass="new-tag" *ngIf="program.isNew"></p-tag>  <!-- البادج الجديد -->
           </div>
         </div>
       </div>
@@ -19,9 +23,11 @@
       <p-card class="details-card">
         <div class="program-header">
           <div class="title-section">
-            <h1 class="program-title">{{ program.name }}</h1>
+            <h1 class="program-title">{{ program.name }} <span class="new-badge" *ngIf="program.isNew">(New)</span></h1>  <!-- بادج هنا كمان -->
           </div>
 
+          <!-- الباقي نفس الـ HTML الأصلي -->
+        </div>
           <div class="program-meta-info">
             <div class="meta-badge">
               <i class="pi pi-clock"></i>
@@ -38,7 +44,6 @@
               </div>
             </div>
           </div>
-        </div>
 
         <p-divider></p-divider>
 
@@ -56,6 +61,7 @@
           <p class="full-description">{{ program.fullDescription }}</p>
         </div>
 
+        <p-divider></p-divider>
 
         <div class="navigation-buttons">
           <p-button
@@ -74,6 +80,7 @@
             [style]="{'flex': '1'}">
           </p-button>
         </div>
+        <!-- الباقي نفس الـ HTML -->
       </p-card>
     </div>
 
@@ -81,14 +88,14 @@
       <div class="sidebar-card">
         <h3 class="sidebar-title">
           <i class="pi pi-list"></i>
-          All Programs
+          All New Programs
         </h3>
         <p-divider></p-divider>
         <ul class="programs-navigation-list">
-          <li *ngFor="let prog of allPrograms"
+          <li *ngFor="let prog of allNewPrograms"
               class="program-nav-item"
               [class.active]="prog.id === program.id">
-            <a [routerLink]="['/programs', prog.id]">
+            <a [routerLink]="['/new-programs', prog.id]">
               <i class="pi pi-angle-left"></i>
               <span>{{ prog.name }}</span>
             </a>
@@ -131,4 +138,4 @@
 </div>
 
 
-<app-footer></app-footer>
+<app-footer>

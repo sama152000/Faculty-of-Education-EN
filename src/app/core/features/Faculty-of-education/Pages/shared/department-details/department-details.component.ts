@@ -4,11 +4,12 @@ import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { DepartmentService } from '../../../Services/department.service';
 import { Department, DepartmentNavigation } from '../../../model/department.model';
 import { FooterComponent } from "../footer/footer.component";
+import { PageHeaderComponent } from "../page-header/page-header.component";
 
 @Component({
   selector: 'app-department-details',
   standalone: true,
-  imports: [CommonModule, NgIf, NgForOf, RouterModule, FooterComponent],
+  imports: [CommonModule, NgIf, NgForOf, RouterModule, FooterComponent, PageHeaderComponent],
   templateUrl: './department-details.component.html',
   styleUrls: ['./department-details.component.css']
 })

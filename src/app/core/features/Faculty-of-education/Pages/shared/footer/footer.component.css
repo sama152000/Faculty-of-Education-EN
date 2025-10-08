@@ -3,10 +3,12 @@
 ======================================== */
 .footer-container {
   background: linear-gradient(135deg, var(--primary-color) 0, var(--dark-primary-color) 100%);
+  /* background-color: #04538c; */
   color: white;
   margin-top: auto;
   position: relative;
   overflow: hidden;
+
 }
 
 .footer-container::before {
@@ -30,13 +32,16 @@
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
+  gap: 4rem;
+  align-items:center;
+/* justify-content: center;
+text-align: center; */
 }
 
 .footer-section {
   display: flex;
   flex-direction: column;
+  min-height: 250px;
 }
 
 /* ========================================
@@ -146,9 +151,20 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  
 }
 
 .footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.main-sections-links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-sections-links li {
+  flex: 0 0 calc(50% - 0.5rem);
   margin-bottom: 0.75rem;
 }
 
@@ -181,10 +197,23 @@
 }
 
 /* ========================================
+   ADDITIONAL LINKS
+======================================= */
+.additional-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+    align-items:center;
+
+}
+
+/* ========================================
    CONTACT SECTION
 ======================================== */
 .contact-section {
   grid-column: span 1;
+  
 }
 
 .contact-info {
@@ -214,7 +243,9 @@
 }
 
 .contact-details {
-  flex: 1;
+  flex:1;
+    align-items:center;
+
 }
 
 .contact-label {
@@ -437,5 +468,10 @@
 
   .divider {
     display: none;
+  }
+
+  .additional-links {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }

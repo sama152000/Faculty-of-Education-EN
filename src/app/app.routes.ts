@@ -11,6 +11,8 @@ import { DeanMessageComponent } from './core/features/Faculty-of-education/Pages
 import { VisionMissionComponent } from './core/features/Faculty-of-education/Pages/about-us/vision-mission/vision-mission.component';
 import { SectorsComponent } from './core/features/Faculty-of-education/Pages/sectors/sectors.component';
 import { DepartmentDetailsComponent } from './core/features/Faculty-of-education/Pages/shared/department-details/department-details.component';
+import { NewProgramDetailsComponent } from './core/features/Faculty-of-education/Pages/shared/new-program-details/new-program-details.component';
+import { FacultyHistoryComponent } from './core/features/Faculty-of-education/Pages/about-us/Faculty-History/Faculty-History.component';
 export const routes: Routes = [
 
  {
@@ -21,11 +23,19 @@ export const routes: Routes = [
       {path:'about-us/staff-members', component : StaffMembersComponent},
       { path: 'news-events', component: NewsEventsComponent },
       {path :'news-events/:id', component : NewsEventsDetailsComponent},
-        { path: 'programs', component: ProgramsListComponent },
-  { path: 'programs/:id', component: ProgramDetailsComponent },
+    // ... استيراد الكومبوننتس
+
+
+  { path: 'programs', component: ProgramsListComponent },  // قائمة كل البرامج
+  { path: 'programs/:id', component: ProgramDetailsComponent },  // تفاصيل أي برنامج (قديم أو جديد، بس حسب ID)
+  { path: 'new-programs', component: ProgramsListComponent },  // قائمة البرامج الجديدة (أنشئي الكومبوننت إذا لزم، أو استخدمي ProgramsListComponent مع فلتر)
+  { path: 'new-programs/:id', component: NewProgramDetailsComponent },  // تفاصيل البرامج الجديدة
+
+
     { path: 'contact', component: ContactUsComponent },
     { path: 'about-us/dean-word', component: DeanMessageComponent },
     { path: 'about-us/vision-mission', component: VisionMissionComponent },
+    { path: 'about-us/Faculty-history', component: FacultyHistoryComponent },
 
     { path: 'units', component: HomeComponent },
     { path: 'labs/computer', component: HomeComponent },

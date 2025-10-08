@@ -1,36 +1,22 @@
 <div class="sectors-container" *ngIf="!loading && currentSector">
   <div class="container-fluid">
-    <!-- Breadcrumb -->
-    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-4">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a [routerLink]="['/']">
-            Home
-          </a>
-        </li>
-        <li class="breadcrumb-item">
-          <a [routerLink]="['/management']">
-            Top Management
-          </a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-          {{ getSectorTitle(currentSector) }}
-        </li>
-      </ol>
-    </nav>
-
+    
     <div class="row">
       <!-- Main Content -->
       <div class="col-lg-8 col-md-7">
+        <app-page-header
+          [title]="getSectorTitle(currentSector)"
+          [breadcrumbs]="[{ label: 'Top Management' }]">
+        </app-page-header>
         <div class="sector-content">
           <!-- Sector Header -->
           <div class="sector-header mb-5">
-            <div class="header-icon mb-3">
+            <!-- <div class="header-icon mb-3">
               <i class="pi pi-building"></i>
-            </div>
-            <h1 class="section-title mb-3">
+            </div> -->
+            <!-- <h1 class="section-title mb-3">
               {{ getSectorTitle(currentSector) }}
-            </h1>
+            </h1> -->
             <div class="vice-dean-info">
               <div class="vice-dean-card">
                 <div class="vice-dean-avatar">
@@ -48,45 +34,51 @@
             </div>
           </div>
 
-          <!-- Objectives Section -->
-          <div class="content-section mb-5">
-            <div class="section-header">
-              <div class="section-icon">
-                <i class="pi pi-target"></i>
-              </div>
-              <h2 class="section-subtitle">
-                Sector Objectives
-              </h2>
-            </div>
-            <div class="objectives-list">
-              <div class="objective-item" *ngFor="let objective of getSectorObjectives(currentSector); let i = index">
-                <div class="objective-number">
-                  {{ i + 1 }}
+          <div class="row">
+            <!-- Objectives Section -->
+            <div class="col-md-12">
+              <div class="content-section mb-5">
+                <div class="section-header">
+                  <div class="section-icon">
+                    <i class="pi pi-target"></i>
+                  </div>
+                  <h2 class="section-subtitle">
+                    Sector Objectives
+                  </h2>
                 </div>
-                <div class="objective-content">
-                  <p>{{ objective }}</p>
+                <div class="objectives-list">
+                  <div class="objective-item" *ngFor="let objective of getSectorObjectives(currentSector); let i = index">
+                    <div class="objective-number">
+                      {{ i + 1 }}
+                    </div>
+                    <div class="objective-content">
+                      <p>{{ objective }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Services Section -->
-          <div class="content-section mb-5">
-            <div class="section-header">
-              <div class="section-icon">
-                <i class="pi pi-cog"></i>
-              </div>
-              <h2 class="section-subtitle">
-                Sector Services
-              </h2>
-            </div>
-            <div class="services-list">
-              <div class="service-item" *ngFor="let service of getSectorServices(currentSector)">
-                <div class="service-icon">
-                  <i class="pi pi-check-circle"></i>
+            <!-- Services Section -->
+            <div class="col-md-12">
+              <div class="content-section mb-5">
+                <div class="section-header">
+                  <div class="section-icon">
+                    <i class="pi pi-cog"></i>
+                  </div>
+                  <h2 class="section-subtitle">
+                    Sector Services
+                  </h2>
                 </div>
-                <div class="service-content">
-                  <p>{{ service }}</p>
+                <div class="services-list">
+                  <div class="service-item" *ngFor="let service of getSectorServices(currentSector)">
+                    <div class="service-icon">
+                      <i class="pi pi-check-circle"></i>
+                    </div>
+                    <div class="service-content">
+                      <p>{{ service }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -183,3 +175,5 @@
     </div>
   </div>
 </div>
+
+<app-footer></app-footer>

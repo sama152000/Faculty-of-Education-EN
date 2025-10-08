@@ -3,24 +3,24 @@ import { CommonModule } from '@angular/common';
 import { DeanService } from '../../../Services/dean.service';
 import { DeanInfo, FacultyHistory } from '../../../model/dean.model';
 import { PageHeaderComponent } from '../../shared/page-header/page-header.component';
-import { FooterComponent } from "../footer/footer.component";
+import { FooterComponent } from "../../shared/footer/footer.component";
 
 @Component({
-  selector: 'app-dean-message',
+  selector: 'app-faculty-history',
   standalone: true,
   imports: [CommonModule, PageHeaderComponent, FooterComponent],
-  templateUrl: './dean-message.component.html',
-  styleUrls: ['./dean-message.component.css']
+  templateUrl: './Faculty-History.component.html',
+  styleUrls: ['./Faculty-History.component.css']
 })
-export class DeanMessageComponent implements OnInit {
+export class FacultyHistoryComponent implements OnInit {
   deanInfo!: DeanInfo;
   facultyHistory!: FacultyHistory;
 
   constructor(private deanService: DeanService) {}
 
   ngOnInit(): void {
-    this.deanService.getDeanInfo().subscribe(info => {
-      this.deanInfo = info;
+   this.deanService.getFacultyHistory().subscribe(history => {
+      this.facultyHistory = history;
     });
 
     

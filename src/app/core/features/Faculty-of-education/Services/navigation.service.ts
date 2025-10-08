@@ -20,6 +20,11 @@ export class NavigationService {
           label: 'Dean Word',
           route: '/about-us/dean-word'
         },
+         {
+          id: 'Faculty-history',
+          label: 'Faculty-history',
+          route: '/about-us/Faculty-history'
+        },
         {
           id: 'vision-mission',
           label: 'Vision-Mission',
@@ -74,74 +79,74 @@ export class NavigationService {
         }
       ]
     },
-    {
+   {
       id: 'programs',
       label: 'Programs',
       children: [
+        {
+          id: 'academic-programs',
+          label: 'Academic Programs',
+          children: [
+            {
+              id: 'arabic',
+              label: 'Arabic Language & Literature Teacher Preparation',
+              route: '/programs/arabic'
+            },
+            {
+              id: 'english',
+              label: 'English Language & Literature Teacher Preparation',
+              route: '/programs/english'
+            },
+            {
+              id: 'french',
+              label: 'French Language & Literature Teacher Preparation',
+              route: '/programs/french'
+            },
+            {
+              id: 'german',
+              label: 'German Language & Literature Teacher Preparation',
+              route: '/programs/german'
+            },
+            {
+              id: 'math',
+              label: 'Mathematics Teacher Preparation',
+              route: '/programs/math'
+            },
+            {
+              id: 'chemistry',
+              label: 'Chemistry Teacher Preparation',
+              route: '/programs/chemistry'
+            },
+            {
+              id: 'biology',
+              label: 'Biological Sciences Teacher Preparation',
+              route: '/programs/biology'
+            }
+          ]
+        },
         {
           id: 'new-programs',
           label: 'New Programs',
           children: [
             {
               id: 'math-english',
-              label: 'Mathematics Teacher Preparation',
-              route: '/programs/new/mathematics-english'
+              label: 'Mathematics Teacher Preparation (English)',
+              route: '/new-programs/math-english'
             },
             {
               id: 'biology-english',
-              label: 'Biological Sciences Teacher Preparation',
-              route: '/programs/new/biology-english'
+              label: 'Biological Sciences Teacher Preparation (English)',
+              route: '/new-programs/biology-english'
             },
             {
               id: 'physics-english',
-              label: 'Physics Teacher Preparation',
-              route: '/programs/new/physics-english'
+              label: 'Physics Teacher Preparation (English)',
+              route: '/new-programs/physics-english'
             },
             {
               id: 'chemistry-english',
-              label: 'Chemistry Teacher Preparation',
-              route: '/programs/new/chemistry-english'
-            }
-          ]
-        },
-        {
-          id: 'academic-programs',
-          label: 'Academic Programs',
-          children: [
-            {
-              id: 'arabic-program',
-              label: 'Arabic Language & Literature Teacher Preparation',
-              route: '/programs/academic/arabic'
-            },
-            {
-              id: 'english-program',
-              label: 'English Language & Literature Teacher Preparation',
-              route: '/programs/academic/english'
-            },
-            {
-              id: 'french-program',
-              label: 'French Language & Literature Teacher Preparation',
-              route: '/programs/academic/french'
-            },
-            {
-              id: 'german-program',
-              label: 'German Language & Literature Teacher Preparation',
-              route: '/programs/academic/german'
-            },
-            {
-              id: 'mathematics-program',
-              label: 'Mathematics Teacher Preparation',
-              route: '/programs/academic/mathematics'
-            },
-            {
-              id: 'chemistry-program',
-              label: 'Chemistry Teacher Preparation',
-              route: '/programs/academic/chemistry'
-            },
-            {
-              id: 'biology-program',
-              label: 'Biological Sciences Teacher Preparation',
-              route: '/programs/academic/biology'
+              label: 'Chemistry Teacher Preparation (English)',
+              route: '/new-programs/chemistry-english'
             }
           ]
         }

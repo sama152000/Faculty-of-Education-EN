@@ -6,7 +6,7 @@
 
 /* Page Header */
 .page-header {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .section-subtitle {
@@ -18,7 +18,7 @@
 
 /* Custom Tabs */
 .tabs-container {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .custom-tabs {
@@ -55,7 +55,8 @@
 
 /* Filters Section */
 .filters-section {
-  margin-bottom: 3rem;
+  padding: var(--section-padding);
+  padding-bottom: 0.1rem;
 }
 
 .filter-card {
@@ -285,11 +286,15 @@
   .news-events-container {
     padding: 2rem 1rem;
   }
-  
+
+  .filters-section {
+    padding: 2rem 1rem;
+  }
+
   .section-title {
     font-size: 2rem;
   }
-  
+
   .filter-card {
     padding: 1.5rem;
   }

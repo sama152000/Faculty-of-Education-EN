@@ -137,13 +137,17 @@ export class FacultyDataService {
           },
           {
             label: 'Upper Primary Teacher Track (Grades 4–6)',
-            value: 0,
-            subItems: []
+            value: 34,
+            subItems: [
+              { label: 'Total Students', male: 9, female: 25, total: 34 }
+            ]
           },
           {
             label: 'Subject Teacher Track (Grades 7–12)',
-            value: 0,
-            subItems: []
+            value: 248,
+            subItems: [
+              { label: 'Total Students', male: 45, female: 203, total: 248 }
+            ]
           },
           {
             label: 'Total Program Enrollment',

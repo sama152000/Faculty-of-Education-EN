@@ -5,6 +5,7 @@
   position: relative;
   overflow: hidden;
   padding: var(--section-padding);
+  padding-bottom: 5rem;
 }
 
 .statistics-section::before {

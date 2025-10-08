@@ -27,12 +27,17 @@
             <ng-template pTemplate="header">
               <div class="card-image-wrapper">
                 <img [src]="program.images[0]" [alt]="program.name" class="card-image" />
-                <div class="card-overlay"></div>
+                <div class="card-overlay">
+                  <p-tag *ngIf="program.isNew" value="New" severity="success" styleClass="new-badge"></p-tag> <!-- بادج للبرامج الجديدة -->
+                </div>
               </div>
             </ng-template>
 
             <div class="card-content">
-              <h3 class="program-title">{{ program.name }}</h3>
+              <h3 class="program-title">
+                {{ program.name }}
+                <span *ngIf="program.isNew" class="new-text">(New)</span> <!-- نص "New" جنب العنوان -->
+              </h3>
 
               <p-divider></p-divider>
 
@@ -88,6 +93,7 @@
               <a [routerLink]="['/programs', program.id]" (click)="selectProgram(program)">
                 <i class="pi pi-angle-left"></i>
                 <span>{{ program.name }}</span>
+                <p-tag *ngIf="program.isNew" value="New" severity="success" styleClass="new-badge sidebar-new-badge"></p-tag> <!-- بادج في الـ sidebar -->
               </a>
             </li>
           }

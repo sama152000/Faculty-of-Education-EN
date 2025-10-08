@@ -1,27 +1,13 @@
 <div class="news-details-container" *ngIf="!loading && currentItem">
   <div class="container-fluid">
-    <!-- Breadcrumb -->
-    <nav aria-label="breadcrumb" class="breadcrumb-nav">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a [routerLink]="['/']">
-            Home
-          </a>
-        </li>
-        <li class="breadcrumb-item">
-          <a [routerLink]="['/news-events']">
-            News & Events
-          </a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-          {{ currentItem.type === 'news' ? 'News' : 'Event' }}
-        </li>
-      </ol>
-    </nav>
-
+    
     <div class="row">
       <!-- Main Content -->
       <div class="col-lg-8">
+        <app-page-header
+          [title]="getItemTitle(currentItem)"
+          [breadcrumbs]="[{ label: 'News & Events', url: '/news-events' }]">
+        </app-page-header>
         <article class="news-article">
           <!-- Article Header -->
           <header class="article-header">
@@ -38,9 +24,9 @@
               </span>
             </div>
 
-            <h1 class="article-title">
+            <!-- <h1 class="article-title">
               {{ getItemTitle(currentItem) }}
-            </h1>
+            </h1> -->
 
             <div class="article-info">
               <div class="date-info">

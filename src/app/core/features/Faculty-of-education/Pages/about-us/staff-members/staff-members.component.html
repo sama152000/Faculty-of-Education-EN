@@ -2,16 +2,13 @@
 
 <section class="staff-members-section">
 <div class="container-fluid">
-  <!-- Page Subtitle -->
-  <div class="page-subtitle">
-    <p>Meet our dedicated team of professionals committed to educational excellence</p>
-  </div>
+ 
 
   <!-- Filters Section -->
     <div class="filters-section">
       <div class="filters-container">
         <!-- Search Input -->
-        <div class="search-container">
+        <!-- <div class="search-container">
           <div class="search-input-wrapper">
             <i class="pi pi-search search-icon"></i>
             <input 
@@ -20,7 +17,7 @@
               placeholder="Search by name or position..."
               (input)="onSearchChange($event)">
           </div>
-        </div>
+        </div> -->
 
         <!-- Department Filter -->
         <div class="department-filter">
@@ -52,7 +49,6 @@
           Showing {{ filteredStaff.length }} of {{ staffMembers.length }} staff members
         </div>
       </div>
-
       <div class="members-grid">
         <div 
           class="staff-card" 
@@ -63,9 +59,9 @@
           <div class="card-header">
             <div class="member-avatar">
               <div class="avatar-circle" [style.background-color]="getDepartmentColor(member.department || 'General')">
-                <span class="avatar-initials">{{ getInitials(member.name) }}</span>
+                <i class="pi pi-user"></i>
               </div>
-              <div class="member-id">#{{ member.id.toString().padStart(2, '0') }}</div>
+              <!-- <div class="member-id">#{{ member.id.toString().padStart(2, '0') }}</div> -->
             </div>
             <div class="department-badge" [style.background-color]="getDepartmentColor(member.department || 'General')">
               {{ member.department || 'General' }}

@@ -47,7 +47,7 @@
         <!-- Main Sections -->
         <div class="footer-section">
           <h4 class="section-title">Main Sections</h4>
-          <ul class="footer-links">
+          <ul class="footer-links main-sections-links">
             <li *ngFor="let item of footerNavItems">
               <a [routerLink]="item.route" class="footer-link">
                 <i class="pi pi-angle-right link-icon"></i>
@@ -87,7 +87,7 @@
             </div>
 
             <!-- Emails -->
-            <div class="contact-item">
+            <!-- <div class="contact-item">
               <div class="contact-icon">
                 <i class="pi pi-envelope"></i>
               </div>
@@ -95,20 +95,13 @@
                 <h5 class="contact-label">Email Addresses</h5>
                 <div class="email-group">
                   <div class="email-item">
-                    <span class="email-role">Dean of Faculty:</span>
-                    <a href="mailto:{{ contactInfo.emails.dean }}" class="contact-link">
-                      {{ contactInfo.emails.dean }}
-                    </a>
-                  </div>
-                  <div class="email-item">
-                    <span class="email-role">Educational Sciences Journal:</span>
                     <a href="mailto:{{ contactInfo.emails.journal }}" class="contact-link">
                       {{ contactInfo.emails.journal }}
                     </a>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div> -->
+            <!-- </div> -->
           </div>
         </div>
       </div>

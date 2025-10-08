@@ -1,0 +1,62 @@
+<app-page-header
+  [title]="'Faculty-history'"
+  [breadcrumbs]="[{ label: 'About Us', url: '/about-us' }, { label: 'Faculty-history' }]">
+</app-page-header>
+    <div class="history-section col-md-12">
+      <div class="history-header col-md-12">
+        
+        <h2 class="section-title">Faculty History</h2>
+       
+      </div>
+
+      <div class="history-timeline col-md-12">
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <i class="pi pi-calendar"></i>
+          </div>
+          <div class="timeline-content col-md-12">
+            <div class="timeline-card">
+              <h4 class="timeline-title">Establishment</h4>
+              <p class="timeline-description">{{ facultyHistory.description }}</p>
+              
+              <div class="history-details">
+                <div class="detail-item">
+                  <i class="pi pi-file"></i>
+                  <span><strong>Decree:</strong> {{ facultyHistory.decree }}</span>
+                </div>
+                <div class="detail-item">
+                  <i class="pi pi-calendar"></i>
+                  <span><strong>Date:</strong> {{ facultyHistory.establishmentDate }}</span>
+                </div>
+                <div class="detail-item">
+                  <i class="pi pi-graduation-cap"></i>
+                  <span><strong>Academic Year:</strong> {{ facultyHistory.academicYear }}</span>
+                </div>
+              </div>
+
+              <div class="programs-section">
+                <h5 class="programs-title">Academic Programs</h5>
+                <div class="programs-list">
+                  <div class="program-item" *ngFor="let program of facultyHistory.programs">
+                    <i class="pi pi-check-circle"></i>
+                    <span>{{ program }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="facilities-section">
+                <h5 class="facilities-title">Modern Facilities</h5>
+                <div class="facilities-grid">
+                  <div class="facility-item" *ngFor="let facility of facultyHistory.facilities">
+                    <i class="pi pi-verified"></i>
+                    <span>{{ facility }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+
+      <app-footer></app-footer>

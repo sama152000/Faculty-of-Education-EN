@@ -3,12 +3,12 @@ import { HeroComponent } from "./hero/hero.component";
 import { FooterComponent } from "../shared/footer/footer.component";
 import { VisionMissionComponent } from "./vision-mission/vision-mission.component";
 // import { DepartmentsComponent } from "./departments/departments.component";
-import { NewProgramsComponent } from "./new-programs/new-programs.component";
 import { FacultyJournalComponent } from "./faculty-journal/faculty-journal.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { StudentServicesComponent } from "./student-services/student-services.component";
 import { NewsEventsComponent } from '../Home/news-events/news-events.component';
 import { AllDepartmentsComponent } from "./all-department/all-department.component";
+import { AllProgramsComponent } from "./all-programs/all-programs.component";
 
 @Component({
   selector: 'app-Home',
@@ -18,11 +18,10 @@ import { AllDepartmentsComponent } from "./all-department/all-department.compone
     FooterComponent,
     VisionMissionComponent,
     //  DepartmentsComponent,
-    NewProgramsComponent,
     FacultyJournalComponent,
     StatisticsComponent,
     StudentServicesComponent,
-    NewsEventsComponent, AllDepartmentsComponent]
+    NewsEventsComponent, AllDepartmentsComponent, AllProgramsComponent]
 })
 
 export class HomeComponent implements OnInit {
