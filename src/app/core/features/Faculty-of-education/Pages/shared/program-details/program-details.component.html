@@ -4,8 +4,13 @@
   <div class="content-wrapper col-md-12">
     <div class="main-content col-md-12 ">
       
-      <app-page-header *ngIf="program" [title]="program.name" [breadcrumbs]="[{ label: 'Programs', url: '/programs' }]"></app-page-header>
-      
+  <app-page-header
+        [title]="program.name"
+        [breadcrumbs]="[
+          {label: 'Programs', url: '/programs'},
+          {label: program.name}
+        ]">
+      </app-page-header>      
       <div class="image-section">
         <div class="program-image-wrapper">
           <img [src]="program.images[0]" [alt]="program.name" class="program-main-image" />

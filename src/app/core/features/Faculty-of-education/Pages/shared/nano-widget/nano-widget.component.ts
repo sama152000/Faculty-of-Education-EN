@@ -30,28 +30,28 @@ export class NanoWidgetComponent {
       id: 'about',
       icon: 'pi pi-info-circle',
       label: 'About',
-      route: '/about',
+      route: '/about-us/vision-mission',
       color: 'var(--nano-color)'
     },
     {
       id: 'departments',
       icon: 'pi pi-building',
-      label: 'Departments',
-      route: '/departments',
+      label: 'prgrams',
+      route: '/programs',
       color: 'var(--nano-color)'
     },
     {
       id: 'staff',
       icon: 'pi pi-users',
       label: 'Staff',
-      route: '/staff',
+      route: '/about-us/staff-members',
       color: 'var(--nano-color)'
     },
     {
       id: 'news',
       icon: 'pi pi-calendar',
       label: 'News',
-      route: '/news',
+      route: '/news-events',
       color: 'var(--nano-color)'
     },
     {
