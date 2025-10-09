@@ -9,7 +9,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
-import { TagModule } from 'primeng/tag'; // لأجل البادج
+import { TagModule } from 'primeng/tag';
+import { FooterComponent } from "../shared/footer/footer.component"; // لأجل البادج
 
 @Component({
   selector: 'app-programs-list',
@@ -24,7 +25,9 @@ import { TagModule } from 'primeng/tag'; // لأجل البادج
     ButtonModule,
     DividerModule,
     TagModule // أضفنا TagModule للبادج
-  ],
+    ,
+    FooterComponent
+],
   templateUrl: './programs-list.component.html',
   styleUrls: ['./programs-list.component.css']
 })

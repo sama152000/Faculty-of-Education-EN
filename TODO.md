@@ -1,4 +1,0 @@
-- [ ] Add min-height: 250px; to .footer-section in footer.component.css to equalize vertical spacing in footer columns
-- [ ] Test the footer layout after changes to ensure equal spacing
-- [ ] Adjust min-height value if necessary for better appearance
-- [x] Replace avatar initials span with user icon in staff-members.component.html

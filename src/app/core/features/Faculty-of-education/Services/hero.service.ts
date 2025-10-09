@@ -13,7 +13,7 @@ export class HeroService {
         title: 'Preparing Outstanding Teachers for a Brighter Educational Future',
         description: 'Faculty of Education – Luxor University, a fully integrated academic environment for preparing future teachers in line with the latest quality standards.',
         buttonText: 'Learn More',
-        buttonLink: '/about'
+        buttonLink: '/about-us/dean-word'
       },
       {
         id: '2',
@@ -29,7 +29,7 @@ export class HeroService {
         title: 'Innovation in Educational Research',
         description: 'Join our research community dedicated to advancing educational practices through cutting-edge research and development.',
         buttonText: 'Research Hub',
-        buttonLink: '/research'
+        buttonLink: '/news-events'
       }
     ],
     autoSlideInterval: 5000

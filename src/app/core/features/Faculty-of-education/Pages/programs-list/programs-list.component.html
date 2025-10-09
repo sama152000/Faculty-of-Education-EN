@@ -1,24 +1,12 @@
-<div class="programs-container">
-  <app-page-header
-    [title]="'Academic Programs'"
-    [breadcrumbs]="[{label: 'Academic Programs'}]">
-  </app-page-header>
-
-  <div class="content-wrapper">
-    <div class="main-content">
-      <div class="search-section">
-        <span class="p-input-icon-left search-input-wrapper">
-          <i class="pi pi-search"></i>
-          <input
-            type="text"
-            pInputText
-            [(ngModel)]="searchTerm"
-            (input)="onSearch()"
-            placeholder="Search programs..."
-            class="search-input" />
-        </span>
-      </div>
-
+<div class="programs-container col-lg-12">
+  
+  <div class="content-wrapper col-lg-12">
+    <div class="main-content col-lg-12">
+      
+      <app-page-header
+        [title]="'Academic Programs'"
+        [breadcrumbs]="[{label: 'Academic Programs'}]">
+      </app-page-header>
       <div class="programs-grid">
         @for (program of filteredPrograms; track program.id) {
           <p-card
@@ -57,13 +45,12 @@
 
             <ng-template pTemplate="footer">
               <div class="card-footer">
-                <p-button
-                  label="View Details"
-                  icon="pi pi-arrow-left"
-                  [routerLink]="['/programs', program.id]"
-                  styleClass="p-button-primary"
-                  [style]="{'width': '100%'}">
-                </p-button>
+                <button
+                  class="view-details-btn"
+                  [routerLink]="['/programs', program.id]">
+                  <span>View Details</span>
+                  <i class="pi pi-arrow-right"></i>
+                </button>
               </div>
             </ng-template>
           </p-card>
@@ -102,3 +89,6 @@
     </aside>
   </div>
 </div>
+
+
+<app-footer></app-footer>

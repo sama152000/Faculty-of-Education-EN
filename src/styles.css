@@ -63,6 +63,7 @@
 }
 
 /* General Button Styles */
+
 .btn-primary-custom {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
@@ -363,3 +364,4 @@ html {
   max-width: 600px;
   margin: 0 auto;
 }
+

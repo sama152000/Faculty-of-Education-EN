@@ -59,18 +59,23 @@ export class VisionMissionService {
       id: 'vision',
       title: 'Vision',
       icon: 'pi pi-eye',
-      gradient: 'linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%)'
+      content: 'Preparing distinguished teachers who possess pedagogical and instructional skills with competence and effectiveness, in accordance with current and future trends in the field of education.',
+     gradient: 'linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%)'
     },
     {
       id: 'mission',
       title: 'Mission',
       icon: 'pi pi-flag',
-      gradient: 'linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-hover) 100%)'
+            content: 'The college seeks to meet the needs of the educational labor market by preparing outstanding teachers capable of equipping a generation that can cope with current and future challenges, based on national standards and aligned with Egypt\'s Vision 2030.',
+    gradient: 'linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-hover) 100%)'
     },
     {
       id: 'objectives',
       title: 'Objectives',
       icon: 'pi pi-bullseye',
+            content: 'Enhancing effective communication skills with students and the external community.Providing opportunities for continuous learning and developing the necessary skills for teachers.',
+    
+  
       gradient: 'linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%)'
     }
   ];

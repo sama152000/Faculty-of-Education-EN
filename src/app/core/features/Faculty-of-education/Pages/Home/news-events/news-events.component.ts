@@ -67,7 +67,11 @@ export class NewsEventsComponent implements OnInit {
     return text.substring(0, limit) + '...';
   }
 
+  navigateToDetails(id: string): void {
+    this.router.navigate(['news-events', id]);
+  }
+
   navigateToNewsEvents(): void {
-    this.router.navigate(['/news-events']);
+    this.router.navigate(['news-events']);
   }
 }

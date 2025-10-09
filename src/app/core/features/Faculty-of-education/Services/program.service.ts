@@ -15,7 +15,7 @@ export class UnifiedProgramsService {
       name: 'Arabic Language ',
       shortDescription: 'Prepares future teachers specialized in Arabic language and literature using modern educational methods.',
       fullDescription: 'This program aims to prepare teachers with strong command of Arabic language and literature, qualified to teach effectively through modern educational methods and tools.',
-      images: ['https://images.pexels.com/photos/819956/pexels-photo-819956.jpeg?auto=compress&cs=tinysrgb&w=1200'],
+      images: ['https://images.pexels.com/photos/19884485/pexels-photo-19884485.jpeg'],
       category: 'Languages',
       duration: '4 Years',
       degree: 'Bachelor of Education',

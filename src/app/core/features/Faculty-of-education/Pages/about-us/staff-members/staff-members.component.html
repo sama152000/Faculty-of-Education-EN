@@ -1,8 +1,8 @@
-<app-page-header [title]="'Staff Members'" [breadcrumbs]="[{label: 'About Us'}, {label: 'Staff Members'}]"></app-page-header>
 
 <section class="staff-members-section">
-<div class="container-fluid">
- 
+  <div class="container-fluid">
+    
+    <app-page-header [title]="'Staff Members'" [breadcrumbs]="[{label: 'About Us'}, {label: 'Staff Members'}]"></app-page-header>
 
   <!-- Filters Section -->
     <div class="filters-section">
@@ -79,7 +79,8 @@
             <div class="contact-info">
               <div class="phone-info">
                 <i class="pi pi-phone contact-icon"></i>
-                <span class="phone-number">{{ member.phone }}</span>
+                <!-- <span class="phone-number">{{ member.phone }}</span> -->
+                 <span class="phone-number">email@gmail.com</span>
               </div>
             </div>
             <button 
@@ -87,7 +88,7 @@
               (click)="callPhone(member.phone)"
               title="Call {{ member.name }}">
               <i class="pi pi-phone"></i>
-              <span>Call</span>
+              <span>Send Email</span>
             </button>
           </div>
         </div>

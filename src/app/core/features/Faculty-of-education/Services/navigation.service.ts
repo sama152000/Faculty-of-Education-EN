@@ -27,7 +27,7 @@ export class NavigationService {
         },
         {
           id: 'vision-mission',
-          label: 'Vision-Mission',
+          label: 'Vision-Mission & Objectives',
           route: '/about-us/vision-mission'
         },
         {
@@ -322,12 +322,12 @@ export class NavigationService {
       {
         id: 'about-faculty',
         label: 'About the Faculty',
-        route: '/about'
+        route: '/about-us/Faculty-history'
       },
       {
         id: 'top-management-footer',
-        label: 'Top Management',
-        route: '/management'
+        label: 'Dean Word',
+        route: '/about-us/dean-word'
       },
       {
         id: 'faculty-departments-footer',
@@ -337,7 +337,7 @@ export class NavigationService {
       {
         id: 'faculty-administrations-footer',
         label: 'Faculty Administrations',
-        route: '/administrations'
+        route: '/'
       },
       {
         id: 'programs-footer',
@@ -347,7 +347,7 @@ export class NavigationService {
       {
         id: 'units-labs-footer',
         label: 'Units & Laboratories',
-        route: '/units-labs'
+        route: '/'
       },
       {
         id: 'news-events-footer',

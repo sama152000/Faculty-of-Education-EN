@@ -3,6 +3,8 @@
   padding: var(--section-padding);
   position: relative;
   overflow: hidden;
+  padding-bottom: 4rem;
+
 }
 
 .staff-members-section::before {
