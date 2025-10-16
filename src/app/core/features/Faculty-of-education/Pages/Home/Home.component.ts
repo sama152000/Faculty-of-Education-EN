@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HeroComponent } from "./hero/hero.component";
 import { FooterComponent } from "../shared/footer/footer.component";
 import { VisionMissionComponent } from "./vision-mission/vision-mission.component";
-// import { DepartmentsComponent } from "./departments/departments.component";
 import { FacultyJournalComponent } from "./faculty-journal/faculty-journal.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { StudentServicesComponent } from "./student-services/student-services.component";
@@ -17,11 +16,12 @@ import { AllProgramsComponent } from "./all-programs/all-programs.component";
   imports: [HeroComponent,
     FooterComponent,
     VisionMissionComponent,
-    //  DepartmentsComponent,
     FacultyJournalComponent,
     StatisticsComponent,
     StudentServicesComponent,
-    NewsEventsComponent, AllDepartmentsComponent, AllProgramsComponent]
+    NewsEventsComponent,
+     AllDepartmentsComponent,
+      AllProgramsComponent]
 })
 
 export class HomeComponent implements OnInit {

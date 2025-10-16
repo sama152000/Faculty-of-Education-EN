@@ -1,23 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule, NgIf, NgForOf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { DepartmentService } from '../../../Services/department.service';
 import { Department, DepartmentNavigation } from '../../../model/department.model';
 import { FooterComponent } from "../footer/footer.component";
 import { PageHeaderComponent } from "../page-header/page-header.component";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-department-details',
   standalone: true,
-  imports: [CommonModule, NgIf, NgForOf, RouterModule, FooterComponent, PageHeaderComponent],
+  imports: [CommonModule, RouterModule, FooterComponent, PageHeaderComponent],
   templateUrl: './department-details.component.html',
   styleUrls: ['./department-details.component.css']
 })
 export class DepartmentDetailsComponent implements OnInit {
   currentDepartment: Department | null = null;
   allDepartments: Department[] = [];
-  navigation: DepartmentNavigation | null = null;
+  navigation: DepartmentNavigation = { previous: null, next: null };
+  currentLanguage = 'en';
   loading = true;
+  breadcrumbs: Array<{ label: string, url?: string }> = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -26,57 +29,107 @@ export class DepartmentDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Load list then subscribe to route params
+    this.loadAllDepartments();
+
+    this.route.url.subscribe(urlSegments => {
+      const fullPath = urlSegments.map(segment => segment.path).join('/');
+      this.loadDepartmentByRoute(fullPath);
+    });
+
+    this.updateBreadcrumbs();
+  }
+
+  loadAllDepartments(): void {
     this.departmentService.getAllDepartments().subscribe(departments => {
       this.allDepartments = departments;
-
-      this.route.params.subscribe(params => {
-        const id = params['id'];
-        if (id) {
-          this.loadDepartmentById(id);
-        } else {
-          // If no id provided, redirect to first department
-          if (this.allDepartments.length > 0) {
-            this.router.navigate(['/department-details', this.allDepartments[0].id]);
-          }
-        }
-      });
     });
   }
 
-  loadDepartmentById(id: string): void {
+  loadDepartmentByRoute(route: string): void {
     this.loading = true;
-    this.departmentService.getDepartmentById(id).subscribe(dept => {
-      if (dept) {
-        this.currentDepartment = dept;
-        this.departmentService.getDepartmentNavigation(id).subscribe(nav => {
-          this.navigation = nav;
+    const tryRoute = (r: string) => this.departmentService.getDepartmentByRoute(r).toPromise();
+
+    (async () => {
+      try {
+        // normalize input: remove leading slash if present
+        let normalized = route.startsWith('/') ? route.substring(1) : route;
+
+        // attempt 1: exact normalized route
+        let department = await tryRoute(normalized);
+        if (department) {
+          this.currentDepartment = department;
+          this.loadNavigation(department.id);
+          this.updateBreadcrumbs();
           this.loading = false;
-        });
-      } else {
-        // invalid id — redirect to first available
-        if (this.allDepartments.length > 0) {
-          this.router.navigate(['/department-details', this.allDepartments[0].id]);
-        } else {
-          this.router.navigate(['/']);
+          return;
         }
+
+        // attempt 2: strip trailing segment (possible id)
+        const lastSlashIndex = normalized.lastIndexOf('/');
+        if (lastSlashIndex > 0) {
+          const baseRoute = normalized.substring(0, lastSlashIndex);
+          department = await tryRoute(baseRoute);
+          if (department) {
+            this.currentDepartment = department;
+            this.loadNavigation(department.id);
+            this.updateBreadcrumbs();
+            this.loading = false;
+            return;
+          }
+        }
+
+        // attempt 3: try adding/removing department-details prefix variants
+        if (!normalized.startsWith('department-details/')) {
+          department = await tryRoute('department-details/' + normalized);
+          if (department) {
+            this.currentDepartment = department;
+            this.loadNavigation(department.id);
+            this.updateBreadcrumbs();
+            this.loading = false;
+            return;
+          }
+        } else {
+          // also try removing 'department-details/' prefix if present
+          const withoutPrefix = normalized.replace(/^department-details\//, '');
+          department = await tryRoute(withoutPrefix);
+          if (department) {
+            this.currentDepartment = department;
+            this.loadNavigation(department.id);
+            this.updateBreadcrumbs();
+            this.loading = false;
+            return;
+          }
+        }
+
+        // final fallback: navigate home
+        this.router.navigate(['/']);
+      } catch (e) {
+        // if any error, fallback to home
+        this.router.navigate(['/']);
+      } finally {
         this.loading = false;
       }
+    })();
+  }
+
+  loadNavigation(departmentId: string): void {
+    this.departmentService.getDepartmentNavigation(departmentId).subscribe(navigation => {
+      this.navigation = navigation;
     });
   }
 
   navigateToDepartment(department: Department): void {
-    this.router.navigate(['/department-details', department.id]);
+    this.router.navigate([department.route]);
   }
 
   navigateToPrevious(): void {
-    if (this.navigation && this.navigation.previous) {
+    if (this.navigation.previous) {
       this.navigateToDepartment(this.navigation.previous);
     }
   }
 
   navigateToNext(): void {
-    if (this.navigation && this.navigation.next) {
+    if (this.navigation.next) {
       this.navigateToDepartment(this.navigation.next);
     }
   }
@@ -103,5 +156,13 @@ export class DepartmentDetailsComponent implements OnInit {
 
   isCurrentDepartment(department: Department): boolean {
     return this.currentDepartment?.id === department.id;
+  }
+
+  updateBreadcrumbs(): void {
+    this.breadcrumbs = [
+      { label: 'Home', url: '/' },
+      { label: 'Faculty Departments', url: '/department-details' },
+      { label: this.currentDepartment ? this.getDepartmentTitle(this.currentDepartment) : '' }
+    ];
   }
 }

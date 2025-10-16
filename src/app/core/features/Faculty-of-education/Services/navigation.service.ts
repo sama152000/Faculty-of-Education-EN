@@ -53,29 +53,38 @@ export class NavigationService {
             {
               id: 'computer-lab',
               label: 'Computer Lab',
-              route: '/labs/computer'
+              // route: '/labs/computer'
+              route:'/comming-soon'
             },
             {
               id: 'mental-health-lab',
               label: 'Mental Health Lab',
-              route: '/labs/mental-health'
+              // route: '/labs/mental-health'
+                            route:'/comming-soon'
+
             },
             {
               id: 'micro-teaching-lab',
               label: 'Micro-Teaching Lab',
-              route: '/labs/micro-teaching'
+              // route: '/labs/micro-teaching'
+                            route:'/comming-soon'
+
             },
             {
               id: 'science-lab',
               label: 'Science Lab',
-              route: '/labs/science'
+              // route: '/labs/science'
+                            route:'/comming-soon'
+
             }
           ]
         },
         {
           id: 'units',
           label: 'Units',
-          route: '/units'
+          // route: '/units'
+                        route:'/comming-soon'
+
         }
       ]
     },
@@ -159,32 +168,44 @@ export class NavigationService {
         {
           id: 'student-affairs',
           label: 'Student Affairs Administration',
-          route: '/administrations/student-affairs'
+          // route: '/administrations/student-affairs'
+                        route:'/comming-soon'
+
         },
         {
           id: 'postgraduate',
           label: 'Postgraduate Studies Administration',
-          route: '/administrations/postgraduate'
+          // route: '/administrations/postgraduate'
+                        route:'/comming-soon'
+
         },
         {
           id: 'hr',
           label: 'Human Resources Administration',
-          route: '/administrations/hr'
+          // route: '/administrations/hr'
+                        route:'/comming-soon'
+
         },
         {
           id: 'youth-welfare',
           label: 'Youth Welfare Administration',
-          route: '/administrations/youth-welfare'
+          // route: '/administrations/youth-welfare'
+                        route:'/comming-soon'
+
         },
         {
           id: 'labs-admin',
           label: 'Laboratories Administration',
-          route: '/administrations/labs'
+          // route: '/administrations/labs'
+                        route:'/comming-soon'
+
         },
         {
           id: 'stores',
           label: 'Stores Administration',
-          route: '/administrations/stores'
+          // route: '/administrations/stores'
+                        route:'/comming-soon'
+
         }
       ]
     },
@@ -337,7 +358,7 @@ export class NavigationService {
       {
         id: 'faculty-administrations-footer',
         label: 'Faculty Administrations',
-        route: '/'
+        route: '/comming-soon'
       },
       {
         id: 'programs-footer',
@@ -347,7 +368,7 @@ export class NavigationService {
       {
         id: 'units-labs-footer',
         label: 'Units & Laboratories',
-        route: '/'
+        route: '/comming-soon'
       },
       {
         id: 'news-events-footer',

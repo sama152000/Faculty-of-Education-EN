@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { DepartmentService } from '../../../Services/department.service';
 import { Department } from '../../../model/department.model';
+import { FooterComponent } from "../../shared/footer/footer.component";
 
 @Component({
   selector: 'app-all-departments',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FooterComponent],
   templateUrl: './all-department.component.html',
   styleUrls: ['./all-department.component.css']
 })

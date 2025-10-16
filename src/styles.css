@@ -26,7 +26,7 @@
 
   
   /* Background Colors */
-  --bg-light: #f8f9fa;
+  --bg-light: #ffffff;
   --bg-white: #ffffff;
   
   /* Text Colors */
@@ -365,3 +365,20 @@ html {
   margin: 0 auto;
 }
 
+/* الغاء أي خلفية رمادية داخل أي dropdown */
+.dropdown-menu,
+.p-menu,
+.p-tieredmenu,
+.p-submenu-list,
+.main-navbar .dropdown-menu {
+  background: white !important;
+}
+
+/* الغاء الخلفية الرمادية عند الـ hover */
+.dropdown-item:hover,
+.p-menuitem-link:hover,
+.p-tieredmenu .p-menuitem-link:hover {
+  background: transparent !important;
+   color: var(--dark-primary-color) !important;
+
+}

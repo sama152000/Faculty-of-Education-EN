@@ -4,6 +4,7 @@ import { FacultyDataService } from '../../../Services/faculty-data.service';
 import { StaffMember } from '../../../model/services.model';
 import { FooterComponent } from "../../shared/footer/footer.component";
 import { PageHeaderComponent } from "../../shared/page-header/page-header.component";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-staff-members',
