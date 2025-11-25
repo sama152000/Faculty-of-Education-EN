@@ -635,11 +635,6 @@
     padding: 0.625rem 1rem;
     font-size: 0.85rem;
   }
-
-  .navbar-nav {
-    width: 320px;
-    padding: 1.5rem 1.25rem;
-  }
 }
 
 @media (max-width: 576px) {
@@ -651,12 +646,27 @@
     font-size: 1.1rem;
   }
 
+  /* Override hiding of span text to keep button names visible */
   .btn-university span {
-    display: none;
+    display: inline !important;
   }
 
+  /* Ensure buttons have stable size and wrap text properly */
+  .btn-university {
+    min-width: 140px !important;
+    padding: 0.625rem 1rem !important;
+    font-size: 0.85rem !important;
+    white-space: normal !important;
+    text-align: center !important;
+    align-items: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+  }
   .navbar-nav {
     width: 280px;
     padding: 1.25rem 1rem;
   }
-}
+  }
+

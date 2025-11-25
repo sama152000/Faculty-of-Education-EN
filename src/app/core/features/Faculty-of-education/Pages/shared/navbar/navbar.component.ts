@@ -65,6 +65,10 @@ export class NavbarComponent implements OnInit {
   navigateTojornal():void{
     window.open('https://jedul.journals.ekb.eg/', '_blank');
   }
+   languageswitcher():void{
+    window.open('https://faculty-of-education-ar-rust.vercel.app/home/', '_blank');
+  }
+
 
   handleItemClick(item: NavItem, event?: Event): void {
     if (item.external && item.url) {
