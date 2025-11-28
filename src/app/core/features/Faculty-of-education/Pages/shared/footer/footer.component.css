@@ -224,8 +224,10 @@ text-align: center; */
 
 .contact-item {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
 }
 
 .contact-icon {
@@ -244,8 +246,7 @@ text-align: center; */
 
 .contact-details {
   flex:1;
-    align-items:center;
-
+  text-align: center;
 }
 
 .contact-label {
@@ -351,6 +352,7 @@ text-align: center; */
 @media (max-width: 1199px) {
   .footer-grid {
     gap: 2.5rem;
+    padding: 1rem;
   }
 
   .faculty-title {
@@ -364,6 +366,13 @@ text-align: center; */
   .footer-link {
     font-size: 1rem;
   }
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+   justify-content: center !important;
+   text-align: center !important;
+   align-items: center !important;
+}
 }
 
 @media (max-width: 991px) {
@@ -379,6 +388,13 @@ text-align: center; */
   .contact-section {
     grid-column: span 2;
   }
+    .contact-info {
+    display: flex;
+    flex-direction: column;
+   justify-content: center !important;
+   text-align: center !important;
+   align-items: center !important;
+}
 }
 
 @media (max-width: 768px) {
@@ -410,8 +426,17 @@ text-align: center; */
     justify-content: center;
   }
 
-  .contact-item {
+  .main-sections-links li {
+    flex: 0 0 100%;
+  }
+
+  .footer-link {
+    padding: 0.5rem 0;
     justify-content: center;
+  }
+
+  .contact-item {
+    justify-content: flex-start;
     text-align: left;
     max-width: 300px;
     margin: 0 auto;
@@ -422,6 +447,13 @@ text-align: center; */
     gap: 1rem;
     text-align: center;
   }
+    .contact-info {
+    display: flex;
+    flex-direction: column;
+   justify-content: center !important;
+   text-align: center !important;
+   align-items: center !important;
+}
 }
 
 @media (max-width: 576px) {
@@ -474,4 +506,11 @@ text-align: center; */
     flex-direction: column;
     gap: 0.5rem;
   }
+    .contact-info {
+    display: flex;
+    flex-direction: column;
+   justify-content: center !important;
+   text-align: center !important;
+   align-items: center !important;
+}
 }

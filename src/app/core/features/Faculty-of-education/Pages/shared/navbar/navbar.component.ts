@@ -33,6 +33,10 @@ export class NavbarComponent implements OnInit {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  closeMenu(): void {
+    this.isMenuOpen = false;
+  }
+
   toggleDropdown(itemId: string, event?: Event): void {
     if (event) {
       event.preventDefault();
@@ -56,6 +60,7 @@ export class NavbarComponent implements OnInit {
 
   closeAllDropdowns(): void {
     this.openDropdowns.clear();
+    this.closeMenu();
   }
 
   navigateToUniversity(): void {
@@ -77,6 +82,7 @@ export class NavbarComponent implements OnInit {
         event.stopPropagation();
       }
       window.open(item.url, '_blank');
+      this.closeMenu();
       return;
     }
 
@@ -96,6 +102,9 @@ export class NavbarComponent implements OnInit {
       }
       return;
     }
+
+    // Close menu after navigation for regular links
+    this.closeMenu();
   }
 
   @HostListener('document:click', ['$event'])
